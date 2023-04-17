@@ -1,3 +1,5 @@
+<main id="main" class="main">
+
 <div id="about" class="about-area area-padding">
     <div class="container">
         <div class="col-md-12 col-sm-12 col-xs-12">
@@ -14,8 +16,11 @@
                     <label  class="form-label">description</label>
                     <input type="text" class="form-control"  name="description"  ngModel>
                 </div>
-                <button type="submit" class="btn btn-primary"  [disabled]="addForm.invalid">Submit</button>
+                <button type="submit" class="btn btn-primary"  [disabled]="addForm.invalid">Submit</button><br><br>
+                <a [routerLink]="['/admin/offer']" class="btn btn-primary">Back to List</a>
+      
             </form>
         </div>
     </div>
 </div>
+</main>

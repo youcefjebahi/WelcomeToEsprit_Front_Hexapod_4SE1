@@ -30,6 +30,17 @@ export class AuthService {
   logout(): Observable<any> {
     return this.http.post('http://localhost:1111/welcometoesprit/api/user/logout', {});
   }
+
+  getSubject(): string {
+    const token = this.getToken();
+    if (token) {
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      return payload.sub;
+    } else {
+      return '';
+    }
+  }
+  
   getRole(): string {
     const token = this.getToken();
     if (token) {
@@ -39,4 +50,5 @@ export class AuthService {
       return '';
     }
   }
+
 }

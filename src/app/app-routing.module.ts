@@ -16,8 +16,28 @@ const routes: Routes = [
     component:AllTemplateAdminComponent,
     children:[
       {
-        path:'admin',
+        path:'',
         component:BodyAdminComponent
+      },
+      {
+        path:'offer',
+        component:ListOffersComponent
+      },
+      {
+        path:'add',
+        component:AddOfferComponent
+      },
+      {
+        path:'update/:id',
+        component:UpdateOfferComponent
+      },
+      {
+        path:'show/:id',
+        component:ShowOfferComponent
+      },
+      {
+        path:'login',
+        component:LoginComponent
       }
     ]
   },

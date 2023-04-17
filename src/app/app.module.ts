@@ -38,6 +38,7 @@ import { TokenInterceptor } from './services/tokenInterceptor';
     ShowOfferComponent,
     ListOffersComponent,
     LoginComponent
+  
   ],
   imports: [
     BrowserModule,

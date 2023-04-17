@@ -17,7 +17,7 @@ export class AddOfferComponent {
     this.offer.speciality = F.controls['speciality'].value;
     this.offer.description= F.controls['description'].value;    
     this.offerService.addOffer(this.offer).subscribe(() => {
-      this.router.navigate(['/offer']);
+      this.router.navigate(['/admin/offer']);
     });
   }
 }

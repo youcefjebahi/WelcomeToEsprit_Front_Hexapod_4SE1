@@ -14,17 +14,13 @@ export class ShowOfferComponent {
   ngOnInit() {  
     this.route.paramMap.subscribe(params => {
       const id = Number(params.get('id'));
-      console.log(id);
       this.getOfferById(id);
     });
   }
   
 
   getOfferById(id: number) {
-    this.offerService.getOfferById(id).subscribe(
-      data => {this.offer = data;
-      console.log(this.offer);
-      });
+    this.offerService.getOfferById(id).subscribe(data => {this.offer = data;});
   }
 }
 

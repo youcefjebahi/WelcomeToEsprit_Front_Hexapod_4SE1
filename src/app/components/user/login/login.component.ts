@@ -21,7 +21,13 @@ export class LoginComponent {
       (response) => {
         const token = response.body.token;
         this.authService.setToken(token);
-        window.location.href = 'http://localhost:4200/';
+        if(this.authService.getRole()=='ADMIN'){
+        window.location.href = 'http://localhost:4200/admin';
+        }
+        else{
+          window.location.href = 'http://localhost:4200/';
+          }
+
       }
     );
   }

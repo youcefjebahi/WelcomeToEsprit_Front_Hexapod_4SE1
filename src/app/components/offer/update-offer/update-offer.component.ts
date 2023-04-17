@@ -29,7 +29,7 @@ export class UpdateOfferComponent {
 
   updateOffer( F: NgForm){
     this.offerService.updateOffer(this.offer).subscribe(() => {
-      this.router.navigate(['/show', this.offer.id]);
+      this.router.navigate(['/admin/show', this.offer.id]);
     });
   }
 }

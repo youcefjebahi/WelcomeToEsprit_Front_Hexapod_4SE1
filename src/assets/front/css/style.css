@@ -13,7 +13,9 @@ html,
 body {
   height: 100%;
 }
-
+.header-nav .nav-profile img {
+  max-height: 36px;
+}
 .floatleft {
   float: left;
 }
@@ -46,6 +48,9 @@ a:focus {
 img {
   max-width: 100%;
   height: auto;
+}
+.header-nav .nav-profile img {
+  max-height: 36px;
 }
 
 .fix {
@@ -384,7 +389,7 @@ div#preloader {
 }
 
 .navbar .dropdown ul li {
-  min-width: 200px;
+  min-width: 180px;
 }
 
 .navbar .dropdown ul a {
@@ -537,6 +542,7 @@ div#preloader {
 .navbar-mobile .dropdown>.dropdown-active {
   display: block;
 }
+
 
 /*--------------------------------------------------------------
 # Hero Section
