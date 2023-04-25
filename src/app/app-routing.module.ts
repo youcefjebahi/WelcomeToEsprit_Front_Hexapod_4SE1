@@ -15,6 +15,11 @@ import { UpdateEventComponent } from './components/event/update-event/update-eve
 import { ShowEventComponent } from './components/event/show-event/show-event.component';
 import { InvitationSpeakerComponent } from './components/invitation/invitation-speaker/invitation-speaker.component';
 import { InvitationStudentsComponent } from './components/invitation/invitation-students/invitation-students.component';
+import { AddOfferCandidacyComponent } from './components/offerCandidacy/add-offer-candidacy/add-offer-candidacy.component';
+import { ShowOfferCandidacyComponent } from './components/offerCandidacy/show-offer-candidacy/show-offer-candidacy.component';
+import { ShowInterviewComponent } from './components/interview/show-interview/show-interview.component';
+import { AddUserComponent } from './components/user/add-user/add-user.component';
+import { UpdateUserComponent } from './components/user/update-user/update-user.component';
 
 const routes: Routes = [
   {
@@ -26,24 +31,20 @@ const routes: Routes = [
         component:BodyAdminComponent
       },
       {
-        path:'offer',
+        path:'offer/list',
         component:ListOffersComponent
       },
       {
-        path:'add',
+        path:'offer/add',
         component:AddOfferComponent
       },
       {
-        path:'update/:id',
+        path:'offer/update/:id',
         component:UpdateOfferComponent
       },
       {
-        path:'show/:id',
+        path:'offer/show/:id',
         component:ShowOfferComponent
-      },
-      {
-        path:'login',
-        component:LoginComponent
       },
       {
         path:'getEvents',
@@ -68,9 +69,26 @@ const routes: Routes = [
       {
         path:'invitaionStudents',
         component:InvitationStudentsComponent
+      },
+        path:'offerCandidacy/show/:id',
+        component:ShowOfferCandidacyComponent
+      },
+      {
+        path:'user/update/:id',
+        component:UpdateUserComponent
+      },
+      {
+        path:'interview/show/:id',
+        component:ShowInterviewComponent
       }
     ]
   },
+
+
+
+
+
+  
   {
     path:'',
     component:AllTemplateUserComponent,
@@ -80,24 +98,33 @@ const routes: Routes = [
         component:BodyUserComponent
       },
       {
-        path:'offer',
+        path:'offer/list',
         component:ListOffersComponent
-      },
-      {
-        path:'add',
-        component:AddOfferComponent
-      },
-      {
-        path:'update/:id',
-        component:UpdateOfferComponent
-      },
-      {
-        path:'show/:id',
-        component:ShowOfferComponent
       },
       {
         path:'login',
         component:LoginComponent
+      },
+      
+      {
+        path:'user/add',
+        component:AddUserComponent
+      },
+      {
+        path:'offerCandidacy/add/:id',
+        component:AddOfferCandidacyComponent
+      },
+      {
+        path:'offerCandidacy/show/:id',
+        component:ShowOfferCandidacyComponent
+      },
+      {
+        path:'interview/show/:id',
+        component:ShowInterviewComponent
+      },
+      {
+        path:'user/update/:id',
+        component:UpdateUserComponent
       }
     ]
   }

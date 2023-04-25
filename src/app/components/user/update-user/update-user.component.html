@@ -1,0 +1,97 @@
+<main id="main" class="main">
+    <div id="about" class="about-area area-padding">
+        <div class="container">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <br>
+                <h2 class="center"> Update user</h2>
+                <form *ngIf="user"  #addForm="ngForm"  (ngSubmit)="updateUser(addForm)">
+                    <div class="mb-3 ">
+                        <label  class="form-label">"cin / passport number"</label>
+                        <input type="text" class="form-control" name="cin" [(ngModel)]="user.cin"  required  minlength="2"  #cin="ngModel" [class.is-invalid]="cin.invalid && cin.touched">
+                        <span style="color: red;"   *ngIf="cin.touched && cin?.errors?.['required']" >"cin / passport number" is required</span>
+                        <span style="color: red;"   *ngIf="cin.touched && cin?.errors?.['minlength']" >"cin / passport number" must be at least 8 caracteres</span>
+                    </div>  
+                    <div class="mb-3 ">
+                        <label  class="form-label">firstName</label>
+                        <input type="text" class="form-control" name="firstName" [(ngModel)]="user.firstName"  required  minlength="2"  #firstName="ngModel" [class.is-invalid]="firstName.invalid && firstName.touched">
+                        <span style="color: red;"   *ngIf="firstName.touched && firstName?.errors?.['required']" >firstName is required</span>
+                        <span style="color: red;"   *ngIf="firstName.touched && firstName?.errors?.['minlength']" >firstName must be at least 2 caracteres</span>
+                    </div>                    
+                    <div class="mb-3 ">
+                        <label  class="form-label">lastName</label>
+                        <input type="text" class="form-control" name="lastName" [(ngModel)]="user.lastName"  required  minlength="2"  #lastName="ngModel" [class.is-invalid]="lastName.invalid && lastName.touched">
+                        <span style="color: red;"   *ngIf="lastName.touched && lastName?.errors?.['required']" >lastName is required</span>
+                        <span style="color: red;"   *ngIf="lastName.touched && lastName?.errors?.['minlength']" >lastName must be at least 2 caracteres</span>
+                        <div class="mb-3">
+                            <label class="form-label">gender</label>
+                            <select class="form-select" name="gender" [(ngModel)]="user.gender" required #gender="ngModel" [class.is-invalid]="gender.invalid && gender.touched">
+                                <option value="" disabled selected>Select a gender</option>
+                                <option *ngFor="let gender of genders" [value]="gender">{{ gender }}</option>
+                            </select>
+                            <span style="color: red;" *ngIf="gender.touched && gender?.errors?.['required']">gender is required</span>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">image</label>
+                        <input type="file" class="form-control" name="image" (change)="onImageSelect($event)">
+                    </div>
+                    <div class="mb-3 ">
+                        <label  class="form-label">address</label>
+                        <input type="text" class="form-control" name="address" [(ngModel)]="user.address"  required  minlength="4"  #address="ngModel" [class.is-invalid]="address.invalid && address.touched">
+                        <span style="color: red;"   *ngIf="address.touched && address?.errors?.['required']" >address is required</span>
+                        <span style="color: red;"   *ngIf="address.touched && address?.errors?.['minlength']" >address must be at least 4 caracteres</span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="birthDate">Birth Date</label>
+                        <input type="date" id="birthDate" name="birthDate" [(ngModel)]="user.birthDate" required>
+
+                      </div>
+                      
+                      
+                    <div class="mb-3 ">
+                        <label  class="form-label">phone</label>
+                        <input type="text" class="form-control" name="phone" [(ngModel)]="user.phone"  required  minlength="2"  #phone="ngModel" [class.is-invalid]="phone.invalid && phone.touched">
+                        <span style="color: red;"   *ngIf="phone.touched && phone?.errors?.['required']" >phone is required</span>
+                        <span style="color: red;"   *ngIf="phone.touched && phone?.errors?.['minlength']" >phone must be at least 8 caracteres</span>
+                    </div>
+                    <div class="mb-3 ">
+                        <label  class="form-label">mail</label>
+                        <input type="text" class="form-control" name="mail" [(ngModel)]="user.mail"  required  minlength="2"  #mail="ngModel" [class.is-invalid]="mail.invalid && mail.touched">
+                        <span style="color: red;"   *ngIf="mail.touched && mail?.errors?.['required']" >mail is required</span>
+                        <span style="color: red;"   *ngIf="mail.touched && mail?.errors?.['minlength']" >mail must be at least 8 caracteres</span>
+                    </div>
+                    <div class="mb-3 ">
+                        <label  class="form-label">password</label>
+                        <input type="text" class="form-control" name="password" [(ngModel)]="user.password"  required  minlength="2"  #password="ngModel" [class.is-invalid]="password.invalid && password.touched">
+                        <span style="color: red;"   *ngIf="password.touched && password?.errors?.['required']" >password is required</span>
+                        <span style="color: red;"   *ngIf="password.touched && password?.errors?.['minlength']" >password must be at least 4 caracteres</span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">bacSection</label>
+                        <select class="form-select" name="bacSection" [(ngModel)]="user.bacSection" required #bacSection="ngModel" [class.is-invalid]="bacSection.invalid && bacSection.touched">
+                            <option value="" disabled selected>Select a bacSection</option>
+                            <option *ngFor="let bacSection of bacSections" [value]="bacSection">{{ bacSection }}</option>
+                        </select>
+                        <span style="color: red;" *ngIf="bacSection.touched && bacSection?.errors?.['required']">BacSection is required</span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">educationLevel</label>
+                        <select class="form-select" name="educationLevel" [(ngModel)]="user.educationLevel" required #educationLevel="ngModel" [class.is-invalid]="educationLevel.invalid && educationLevel.touched">
+                            <option value="" disabled selected>Select a level</option>
+                            <option *ngFor="let educationLevel of educationLevels" [value]="educationLevel">{{ educationLevel }}</option>
+                        </select>
+                        <span style="color: red;" *ngIf="educationLevel.touched && educationLevel?.errors?.['required']">EducationLevel is required</span>
+                    </div>
+                    <div class="mb-3 ">
+                        <label  class="form-label">speciality</label>
+                        <input type="text" class="form-control" name="speciality" [(ngModel)]="user.speciality"  required  minlength="2"  #speciality="ngModel" [class.is-invalid]="speciality.invalid && speciality.touched">
+                        <span style="color: red;"   *ngIf="speciality.touched && speciality?.errors?.['required']" >speciality is required</span>
+                        <span style="color: red;"   *ngIf="speciality.touched && speciality?.errors?.['minlength']" >speciality must be at least 2 caracteres</span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary"  [disabled]="addForm.invalid">Submit</button><br><br>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
