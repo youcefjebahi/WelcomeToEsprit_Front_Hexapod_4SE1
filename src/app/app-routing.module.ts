@@ -69,7 +69,7 @@ const routes: Routes = [
       {
         path:'invitaionStudents',
         component:InvitationStudentsComponent
-      },
+      },{
         path:'offerCandidacy/show/:id',
         component:ShowOfferCandidacyComponent
       },

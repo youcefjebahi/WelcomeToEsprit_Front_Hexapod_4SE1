@@ -63,7 +63,7 @@ import { UpdateUserComponent } from './components/user/update-user/update-user.c
     ListEventComponent,
     DateFormatPipe,
     InvitationSpeakerComponent,
-    InvitationStudentsComponent
+    InvitationStudentsComponent,
     AddOfferCandidacyComponent,
     ShowOfferCandidacyComponent,
     ShowInterviewComponent,
