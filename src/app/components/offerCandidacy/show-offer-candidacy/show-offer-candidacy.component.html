@@ -1,0 +1,60 @@
+<main id="main">
+     
+    <div id="about" class="about-area area-padding">
+        <div class="container">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <br>
+            <h2 class="center">Show OfferCandidacy</h2>
+            
+            <ul *ngIf="offerCandidacy">
+              <li>id: {{offerCandidacy.id}}</li>
+              <li>establishment: {{offerCandidacy.establishment}}</li>
+              <li>docCv: 
+                <div *ngIf="offerCandidacy.docCV" class="media-container" (click)="toggleFullScreen($event)">
+                  <div *ngIf="getFileFormat(offerCandidacy.docCV) === 'png' || getFileFormat(offerCandidacy.docCV) === 'jpeg'">
+                    <img [src]="'data:image/jpeg;base64,' + offerCandidacy.docCV" alt="CV" class="media">
+                  </div>
+                  <div *ngIf="getFileFormat(offerCandidacy.docCV) === 'pdf'">
+                    <ngx-extended-pdf-viewer [src]="'data:application/pdf;base64,' + offerCandidacy.docCV" [zoom]="100"  height="100vh"></ngx-extended-pdf-viewer>
+                  </div>
+                </div>
+              </li>
+              <li> docDiploma:
+                <div *ngIf="offerCandidacy.docDiploma" class="media-container" (click)="toggleFullScreen($event)">
+                  <div *ngIf="getFileFormat(offerCandidacy.docDiploma) === 'png' || getFileFormat(offerCandidacy.docDiploma) === 'jpeg'">
+                    <img [src]="'data:image/jpeg;base64,' + offerCandidacy.docDiploma" alt="Diploma" class="media">
+                  </div>
+                  <div *ngIf="getFileFormat(offerCandidacy.docDiploma) === 'pdf'">
+                    <ngx-extended-pdf-viewer [src]="'data:application/pdf;base64,' + offerCandidacy.docDiploma" [zoom]="100" height="100vh"></ngx-extended-pdf-viewer>
+                  </div>
+                </div>
+              </li>
+              <li> docLetter: 
+                <div *ngIf="offerCandidacy.docLetter" class="media-container" (click)="toggleFullScreen($event)">
+                  <div *ngIf="getFileFormat(offerCandidacy.docLetter) === 'png' || getFileFormat(offerCandidacy.docLetter) === 'jpeg'">
+                    <img [src]="'data:image/jpeg;base64,' + offerCandidacy.docLetter" alt="Letter" class="media" >
+                  </div>
+                  <div *ngIf="getFileFormat(offerCandidacy.docLetter) === 'pdf'">
+                    <ngx-extended-pdf-viewer [src]="'data:application/pdf;base64,' + offerCandidacy.docLetter" [zoom]="100"  height="100vh"></ngx-extended-pdf-viewer>
+                  </div>
+                </div>
+              </li>
+            </ul>
+
+          </div>
+          <a *ngIf="role=='ADMIN'" [routerLink]="['/admin/offer/list']" class="btn btn-primary">Back</a>
+          <a *ngIf="role!='ADMIN'" [routerLink]="['/offer/list']" class="btn btn-primary">Back</a>
+        </div>
+      </div>
+    </main>
+      
+
+    <!--
+      <div class="media-container" (click)="toggleFullScreen($event)">
+                  <video controls class="media">
+                    <source [src]="'data:video/mp4;base64,' + offerCandidacy.docDiploma" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              
+              -->

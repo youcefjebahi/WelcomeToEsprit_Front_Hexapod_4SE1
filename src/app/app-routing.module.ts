@@ -9,6 +9,11 @@ import { UpdateOfferComponent } from './components/offer/update-offer/update-off
 import { ShowOfferComponent } from './components/offer/show-offer/show-offer.component';
 import { ListOffersComponent } from './components/offer/list-offers/list-offers.component';
 import { LoginComponent } from './components/user/login/login.component';
+import { AddOfferCandidacyComponent } from './components/offerCandidacy/add-offer-candidacy/add-offer-candidacy.component';
+import { ShowOfferCandidacyComponent } from './components/offerCandidacy/show-offer-candidacy/show-offer-candidacy.component';
+import { ShowInterviewComponent } from './components/interview/show-interview/show-interview.component';
+import { AddUserComponent } from './components/user/add-user/add-user.component';
+import { UpdateUserComponent } from './components/user/update-user/update-user.component';
 
 const routes: Routes = [
   {
@@ -20,27 +25,41 @@ const routes: Routes = [
         component:BodyAdminComponent
       },
       {
-        path:'offer',
+        path:'offer/list',
         component:ListOffersComponent
       },
       {
-        path:'add',
+        path:'offer/add',
         component:AddOfferComponent
       },
       {
-        path:'update/:id',
+        path:'offer/update/:id',
         component:UpdateOfferComponent
       },
       {
-        path:'show/:id',
+        path:'offer/show/:id',
         component:ShowOfferComponent
       },
       {
-        path:'login',
-        component:LoginComponent
+        path:'offerCandidacy/show/:id',
+        component:ShowOfferCandidacyComponent
+      },
+      {
+        path:'user/update/:id',
+        component:UpdateUserComponent
+      },
+      {
+        path:'interview/show/:id',
+        component:ShowInterviewComponent
       }
     ]
   },
+
+
+
+
+
+  
   {
     path:'',
     component:AllTemplateUserComponent,
@@ -50,24 +69,33 @@ const routes: Routes = [
         component:BodyUserComponent
       },
       {
-        path:'offer',
+        path:'offer/list',
         component:ListOffersComponent
-      },
-      {
-        path:'add',
-        component:AddOfferComponent
-      },
-      {
-        path:'update/:id',
-        component:UpdateOfferComponent
-      },
-      {
-        path:'show/:id',
-        component:ShowOfferComponent
       },
       {
         path:'login',
         component:LoginComponent
+      },
+      
+      {
+        path:'user/add',
+        component:AddUserComponent
+      },
+      {
+        path:'offerCandidacy/add/:id',
+        component:AddOfferCandidacyComponent
+      },
+      {
+        path:'offerCandidacy/show/:id',
+        component:ShowOfferCandidacyComponent
+      },
+      {
+        path:'interview/show/:id',
+        component:ShowInterviewComponent
+      },
+      {
+        path:'user/update/:id',
+        component:UpdateUserComponent
       }
     ]
   }

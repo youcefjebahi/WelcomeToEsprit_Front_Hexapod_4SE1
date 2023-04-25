@@ -21,7 +21,7 @@
           <li class="nav-item dropdown pe-3">
             
             <a *ngIf="logedIn && user" class="nav-link nav-profile d-flex align-items-center pe-0" href="#">
-              <img  src="/assets/back/img/profile-img.jpg" alt="Profile" class="rounded-circle" style="max-height: 36px;">
+              <img [src]="'data:image/jpeg;base64,' + user.image" alt="Profile" class="rounded-circle" style="max-height: 36px;">
               <span class="d-none d-md-block dropdown-toggle ps-2">{{user.firstName}}</span>
             </a><!-- End Profile Iamge Icon -->
             <a *ngIf="!logedIn || !user" class="nav-link nav-profile d-flex align-items-center pe-0" href="#">
@@ -66,7 +66,7 @@
               </li>
   
               <li *ngIf="!logedIn || !user">
-                <a class="dropdown-item d-flex align-items-center" href="#">
+                <a class="dropdown-item d-flex align-items-center" href="/user/add">
                   <span>SIGN UP</span>
                   <i class="bi bi-person-plus"></i>
                 </a>

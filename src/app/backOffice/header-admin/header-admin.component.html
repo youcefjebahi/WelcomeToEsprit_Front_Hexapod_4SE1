@@ -170,7 +170,7 @@
         <li class="nav-item dropdown pe-3">
 
           <a *ngIf="user" class="nav-link nav-profile d-flex align-items-center pe-0" href="admin#" data-bs-toggle="dropdown">
-            <img src="/assets/back/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+            <img [src]="'data:image/jpeg;base64,' + user.image" alt="Profile" class="rounded-circle">
             <span class="d-none d-md-block dropdown-toggle ps-2">{{user.firstName}}</span>
           </a><!-- End Profile Iamge Icon -->
 
@@ -213,7 +213,7 @@
               <hr class="dropdown-divider">
             </li>
 
-            <li *ngIf="logedIn">
+            <li *ngIf="logedIn && user">
               <a class="dropdown-item d-flex align-items-center" href="javascript:void(0)#" (click)="logout()">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Log Out</span>

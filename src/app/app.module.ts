@@ -14,12 +14,24 @@ import { FooterUserComponent } from './frontOffice/footer-user/footer-user.compo
 import { HeaderUserComponent } from './frontOffice/header-user/header-user.component';
 import { HttpClientModule, HTTP_INTERCEPTORS  } from '@angular/common/http';
 import { AddOfferComponent } from './components/offer/add-offer/add-offer.component';
-import { FormGroup, FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpdateOfferComponent } from './components/offer/update-offer/update-offer.component';
 import { ShowOfferComponent } from './components/offer/show-offer/show-offer.component';
 import { ListOffersComponent } from './components/offer/list-offers/list-offers.component';
 import { LoginComponent } from './components/user/login/login.component';
 import { TokenInterceptor } from './services/tokenInterceptor';
+import { AddOfferCandidacyComponent } from './components/offerCandidacy/add-offer-candidacy/add-offer-candidacy.component';
+import { ShowOfferCandidacyComponent } from './components/offerCandidacy/show-offer-candidacy/show-offer-candidacy.component';
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { ShowInterviewComponent } from './components/interview/show-interview/show-interview.component';
+import { AddUserComponent } from './components/user/add-user/add-user.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
+import { UpdateUserComponent } from './components/user/update-user/update-user.component';
+
 
 @NgModule({
   declarations: [
@@ -37,15 +49,31 @@ import { TokenInterceptor } from './services/tokenInterceptor';
     UpdateOfferComponent,
     ShowOfferComponent,
     ListOffersComponent,
-    LoginComponent
+    LoginComponent,
+    AddOfferCandidacyComponent,
+    ShowOfferCandidacyComponent,
+    ShowInterviewComponent,
+    AddUserComponent,
+    UpdateUserComponent
   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgxExtendedPdfViewerModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule
 
+  ],
+  exports: [
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
