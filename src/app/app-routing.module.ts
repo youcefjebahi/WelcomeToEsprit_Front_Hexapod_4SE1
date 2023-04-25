@@ -9,6 +9,12 @@ import { UpdateOfferComponent } from './components/offer/update-offer/update-off
 import { ShowOfferComponent } from './components/offer/show-offer/show-offer.component';
 import { ListOffersComponent } from './components/offer/list-offers/list-offers.component';
 import { LoginComponent } from './components/user/login/login.component';
+import { AddEventComponent } from './components/event/add-event/add-event.component';
+import { ListEventComponent } from './components/event/list-event/list-event.component';
+import { UpdateEventComponent } from './components/event/update-event/update-event.component';
+import { ShowEventComponent } from './components/event/show-event/show-event.component';
+import { InvitationSpeakerComponent } from './components/invitation/invitation-speaker/invitation-speaker.component';
+import { InvitationStudentsComponent } from './components/invitation/invitation-students/invitation-students.component';
 import { AddOfferCandidacyComponent } from './components/offerCandidacy/add-offer-candidacy/add-offer-candidacy.component';
 import { ShowOfferCandidacyComponent } from './components/offerCandidacy/show-offer-candidacy/show-offer-candidacy.component';
 import { ShowInterviewComponent } from './components/interview/show-interview/show-interview.component';
@@ -41,6 +47,29 @@ const routes: Routes = [
         component:ShowOfferComponent
       },
       {
+        path:'getEvents',
+        component:ListEventComponent
+      },
+      {
+        path:'addEvent',
+        component:AddEventComponent
+      },
+      {
+        path:'updateEvent',
+        component:UpdateEventComponent
+      },
+      {
+        path:'showEvent',
+        component:ShowEventComponent
+      },
+      {
+        path:'invitionSpeaker',
+        component:InvitationSpeakerComponent
+      },
+      {
+        path:'invitaionStudents',
+        component:InvitationStudentsComponent
+      },
         path:'offerCandidacy/show/:id',
         component:ShowOfferCandidacyComponent
       },

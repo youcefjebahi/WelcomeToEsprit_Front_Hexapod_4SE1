@@ -20,6 +20,13 @@ import { ShowOfferComponent } from './components/offer/show-offer/show-offer.com
 import { ListOffersComponent } from './components/offer/list-offers/list-offers.component';
 import { LoginComponent } from './components/user/login/login.component';
 import { TokenInterceptor } from './services/tokenInterceptor';
+import { AddEventComponent } from './components/event/add-event/add-event.component';
+import { ShowEventComponent } from './components/event/show-event/show-event.component';
+import { UpdateEventComponent } from './components/event/update-event/update-event.component';
+import { ListEventComponent } from './components/event/list-event/list-event.component';
+import { DateFormatPipe } from './date-format.pipe';
+import { InvitationSpeakerComponent } from './components/invitation/invitation-speaker/invitation-speaker.component';
+import { InvitationStudentsComponent } from './components/invitation/invitation-students/invitation-students.component';
 import { AddOfferCandidacyComponent } from './components/offerCandidacy/add-offer-candidacy/add-offer-candidacy.component';
 import { ShowOfferCandidacyComponent } from './components/offerCandidacy/show-offer-candidacy/show-offer-candidacy.component';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
@@ -50,6 +57,13 @@ import { UpdateUserComponent } from './components/user/update-user/update-user.c
     ShowOfferComponent,
     ListOffersComponent,
     LoginComponent,
+    AddEventComponent,
+    ShowEventComponent,
+    UpdateEventComponent,
+    ListEventComponent,
+    DateFormatPipe,
+    InvitationSpeakerComponent,
+    InvitationStudentsComponent
     AddOfferCandidacyComponent,
     ShowOfferCandidacyComponent,
     ShowInterviewComponent,
