@@ -26,7 +26,6 @@ import { UpdateEventComponent } from './components/event/update-event/update-eve
 import { ListEventComponent } from './components/event/list-event/list-event.component';
 import { DateFormatPipe } from './date-format.pipe';
 import { InvitationSpeakerComponent } from './components/invitation/invitation-speaker/invitation-speaker.component';
-import { InvitationStudentsComponent } from './components/invitation/invitation-students/invitation-students.component';
 import { AddOfferCandidacyComponent } from './components/offerCandidacy/add-offer-candidacy/add-offer-candidacy.component';
 import { ShowOfferCandidacyComponent } from './components/offerCandidacy/show-offer-candidacy/show-offer-candidacy.component';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
@@ -38,6 +37,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import { UpdateUserComponent } from './components/user/update-user/update-user.component';
+import { ShowInvitationByEventComponent } from './components/invitation/show-invitation-by-event/show-invitation-by-event.component';
+
 
 
 @NgModule({
@@ -63,12 +64,12 @@ import { UpdateUserComponent } from './components/user/update-user/update-user.c
     ListEventComponent,
     DateFormatPipe,
     InvitationSpeakerComponent,
-    InvitationStudentsComponent,
     AddOfferCandidacyComponent,
     ShowOfferCandidacyComponent,
     ShowInterviewComponent,
     AddUserComponent,
-    UpdateUserComponent
+    UpdateUserComponent,
+    ShowInvitationByEventComponent
   
   ],
   imports: [
