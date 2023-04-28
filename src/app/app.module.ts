@@ -37,6 +37,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import { UpdateUserComponent } from './components/user/update-user/update-user.component';
+import { ListRoleComponent } from './components/role/list-role/list-role.component';
+import { ShowUserComponent } from './components/user/show-user/show-user.component';
 import { ShowInvitationByEventComponent } from './components/invitation/show-invitation-by-event/show-invitation-by-event.component';
 
 
@@ -69,8 +71,9 @@ import { ShowInvitationByEventComponent } from './components/invitation/show-inv
     ShowInterviewComponent,
     AddUserComponent,
     UpdateUserComponent,
-    ShowInvitationByEventComponent
-  
+    ListRoleComponent,
+    ShowUserComponent
+    ShowInvitationByEventComponent  
   ],
   imports: [
     BrowserModule,

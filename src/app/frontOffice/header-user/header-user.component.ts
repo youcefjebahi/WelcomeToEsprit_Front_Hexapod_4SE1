@@ -18,6 +18,7 @@ export class HeaderUserComponent{
   mail=this.authService.getSubject();
   user!:User;
   ngOnInit() {  
+    if (this.mail)
     this.userService.getUserbyMail(this.mail)
     .subscribe((user) => {
       this.user = user;
@@ -27,7 +28,7 @@ export class HeaderUserComponent{
   logout(){
     this.authService.logout().subscribe(() => {
       this.cookieService.delete('token');
-      this.cookieService.delete('token');
+      this.cookieService.deleteAll();
       window.location.href = 'http://localhost:4200/';
     });
   }

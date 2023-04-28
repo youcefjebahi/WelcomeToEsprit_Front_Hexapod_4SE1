@@ -19,6 +19,8 @@ import { ShowOfferCandidacyComponent } from './components/offerCandidacy/show-of
 import { ShowInterviewComponent } from './components/interview/show-interview/show-interview.component';
 import { AddUserComponent } from './components/user/add-user/add-user.component';
 import { UpdateUserComponent } from './components/user/update-user/update-user.component';
+import { ListRoleComponent } from './components/role/list-role/list-role.component';
+import { ShowUserComponent } from './components/user/show-user/show-user.component';
 import { ShowInvitationByEventComponent } from './components/invitation/show-invitation-by-event/show-invitation-by-event.component';
 
 const routes: Routes = [
@@ -84,6 +86,14 @@ const routes: Routes = [
       {
         path:'interview/show/:id',
         component:ShowInterviewComponent
+      },
+      {
+        path:'role/list',
+        component:ListRoleComponent
+      },
+      {
+        path:'user/show/:id',
+        component:ShowUserComponent
       }
     ]
   },
@@ -129,6 +139,10 @@ const routes: Routes = [
       {
         path:'user/update/:id',
         component:UpdateUserComponent
+      },
+      {
+        path:'user/show/:id',
+        component:ShowUserComponent
       }
     ]
   }
