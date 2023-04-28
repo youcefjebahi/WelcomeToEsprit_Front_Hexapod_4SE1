@@ -72,7 +72,7 @@ import { ShowInvitationByEventComponent } from './components/invitation/show-inv
     AddUserComponent,
     UpdateUserComponent,
     ListRoleComponent,
-    ShowUserComponent
+    ShowUserComponent,
     ShowInvitationByEventComponent  
   ],
   imports: [

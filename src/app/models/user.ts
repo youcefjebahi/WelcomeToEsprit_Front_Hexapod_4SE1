@@ -23,16 +23,6 @@ export class User {
     speciality!:string;
     classe!:string;
     creationDate!:Date;
-    department?:string;
-    hiringDate?:Date;
-    evaluator?:boolean;
-    jury?:boolean;
-    speaker?:boolean;
-    bacSection?:string;
-    educationLevel?:string;
-    speciality?:string;
-    classe!:string;
-    creationDate?:Date;
     role!:Role;
 
 }
