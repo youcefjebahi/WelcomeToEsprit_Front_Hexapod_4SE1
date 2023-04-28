@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Event } from 'src/app/models/event';
 
 
@@ -13,9 +14,20 @@ export class EventService {
   getEvents(){
     return this.http.get<Event[]>(this.url+'/getEvents');
   }
-  addEvent(event: Event){
-    return this.http.post<Event>(this.url+`/ajouterEvent?name=${event.name}&space=${event.space}%20J&date=${event.date}`,event);
-  }
+
+  addEvent(name:string,space:string, date:string,planning:File): Observable<any> {
+    const formData: FormData = new FormData();
+    formData.append('name', name);
+    formData.append('space', space);
+    formData.append('date', date);
+    formData.append('planning', planning);
+
+    const headers = new HttpHeaders();
+    headers.append('Content-Type', 'multipart/form-data');
+    headers.append('Accept', 'application/json');
+
+    return this.http.post(this.url + '/ajouterEvent', formData, { headers: headers });  }
+
   updateEvent(event:Event){
     return this.http.put<Event>(this.url+'/Update',event);
   }

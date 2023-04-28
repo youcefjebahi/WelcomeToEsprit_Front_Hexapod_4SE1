@@ -6,6 +6,7 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { AuthService } from 'src/app/services/auth.service';
 
 
+
 @Component({
   selector: 'app-show-offer-candidacy',
   templateUrl: './show-offer-candidacy.component.html',

@@ -14,7 +14,6 @@ import { ListEventComponent } from './components/event/list-event/list-event.com
 import { UpdateEventComponent } from './components/event/update-event/update-event.component';
 import { ShowEventComponent } from './components/event/show-event/show-event.component';
 import { InvitationSpeakerComponent } from './components/invitation/invitation-speaker/invitation-speaker.component';
-import { InvitationStudentsComponent } from './components/invitation/invitation-students/invitation-students.component';
 import { AddOfferCandidacyComponent } from './components/offerCandidacy/add-offer-candidacy/add-offer-candidacy.component';
 import { ShowOfferCandidacyComponent } from './components/offerCandidacy/show-offer-candidacy/show-offer-candidacy.component';
 import { ShowInterviewComponent } from './components/interview/show-interview/show-interview.component';
@@ -22,6 +21,7 @@ import { AddUserComponent } from './components/user/add-user/add-user.component'
 import { UpdateUserComponent } from './components/user/update-user/update-user.component';
 import { ListRoleComponent } from './components/role/list-role/list-role.component';
 import { ShowUserComponent } from './components/user/show-user/show-user.component';
+import { ShowInvitationByEventComponent } from './components/invitation/show-invitation-by-event/show-invitation-by-event.component';
 
 const routes: Routes = [
   {
@@ -57,21 +57,25 @@ const routes: Routes = [
         component:AddEventComponent
       },
       {
-        path:'updateEvent',
+        path:'updateEvent/:id',
         component:UpdateEventComponent
       },
       {
-        path:'showEvent',
+        path:'showEvent/:id',
         component:ShowEventComponent
       },
       {
-        path:'invitionSpeaker',
+        path:'invitationSpeaker/:id',
         component:InvitationSpeakerComponent
+        
       },
       {
-        path:'invitaionStudents',
-        component:InvitationStudentsComponent
-      },{
+        path:'showInvitations/:id',
+        component:ShowInvitationByEventComponent
+        
+      },
+  
+      {
         path:'offerCandidacy/show/:id',
         component:ShowOfferCandidacyComponent
       },
