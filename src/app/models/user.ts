@@ -20,7 +20,7 @@ export class User {
     bacSection?:string;
     educationLevel?:string;
     speciality?:string;
-    classe?:string;
+    classe!:string;
     creationDate?:Date;
     role!:Role;
 
