@@ -38,6 +38,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import { UpdateUserComponent } from './components/user/update-user/update-user.component';
+import { ListRoleComponent } from './components/role/list-role/list-role.component';
+import { ShowUserComponent } from './components/user/show-user/show-user.component';
 
 
 @NgModule({
@@ -68,7 +70,9 @@ import { UpdateUserComponent } from './components/user/update-user/update-user.c
     ShowOfferCandidacyComponent,
     ShowInterviewComponent,
     AddUserComponent,
-    UpdateUserComponent
+    UpdateUserComponent,
+    ListRoleComponent,
+    ShowUserComponent
   
   ],
   imports: [
