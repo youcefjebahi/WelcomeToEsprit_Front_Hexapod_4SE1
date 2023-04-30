@@ -1,1 +1,55 @@
-<p>invitation-speaker works!</p>
+<main id="main">
+    <div id="about" class="about-area area-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="section-headline text-center">
+                        <br>
+                        <h2>Our speakersList</h2>
+                   
+            </div>
+            
+            <div class="row">
+                <div *ngFor="let user of speakersList" class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="services-details">
+                        <div class="card" style="width: 18rem;">
+                            <img class="card-img-top" src="../assets/recruitment.png" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">{{user.firstName}}</h5>
+                                <p class="card-text">{{user.lastName}}</p>
+                                <p class="card-text">{{user.mail}}</p>
+                     
+                                <div class="button-group">
+                                    
+                                   <button *ngIf="role=='ADMIN'" class="btn btn-primary" (click)="inviterSpeaker(user.id)">Inviter</button> 
+                                  </div>
+                            </div>
+                            
+                            </div>   
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                    <div>
+                        <div *ngFor="let user of studentsList">
+                            <select id="niveau">
+                       <option value="1">1</option>
+                       <option value="2">2</option>
+                       <option value="3">3</option>
+                       <option value="4">4</option>
+                       <option value="5">5</option>
+                     </select>
+                     <button *ngIf="role=='ADMIN'" class="btn btn-primary" (click)="inviterstudents(user.classe)" style="margin: 0.5cm;" >Inviter Students</button> 
+
+                        </div>
+                        <div>
+
+                        </div>
+                        
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- End About Section -->
+</main><!-- End #main -->

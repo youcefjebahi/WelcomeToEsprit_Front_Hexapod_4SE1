@@ -2,18 +2,29 @@
 
 <div id="about" class="about-area area-padding">
     <div class="container">
-      <div class="col-md-12 col-sm-12 col-xs-12">
-        <br>
-        <h2 class="center">Show Offer</h2>
-        <ul>
-            <li>id: {{offer.id}}</li>
-            <li>speciality: {{offer.speciality}}</li>
-            <li>description: {{offer.description}}</li>
-            <li>creationDate: {{offer.creationDate}}</li>
-        </ul>
-      </div>
-      <a [routerLink]="['/admin/offer/list']" class="btn btn-primary">Back to List</a>
-    </div>
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <br>
+    <h2 class="center">Offer details</h2>
+    <table class="table">
+      <tbody>
+        <tr>
+          <td><strong>Speciality</strong></td>
+          <td>{{offer.speciality}}</td>
+        </tr>
+        <tr>
+          <td><strong>Description</strong></td>
+          <td>{{offer.description}}</td>
+        </tr>
+        <tr>
+          <td><strong>Creation date</strong></td>
+          <td>{{offer.creationDate | date:'EEEE dd-MM-yyyy \'at\' HH:mm'}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <a [routerLink]="['/admin/offer/list']" class="btn btn-primary">Back to List</a>
+</div>
+
   </div>
 </main>
   

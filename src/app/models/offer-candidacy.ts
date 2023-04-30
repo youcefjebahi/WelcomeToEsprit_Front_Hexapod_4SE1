@@ -12,6 +12,6 @@ export class OfferCandidacy {
     score?: number;
     status?: string;
     offer!: Offer;
-    interview?: Interview;
+    interview!: Interview;
     user!: User;
 }

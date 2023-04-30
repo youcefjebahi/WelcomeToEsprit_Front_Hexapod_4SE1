@@ -17,14 +17,15 @@ export class UserService {
   }
   getUserById(id:number){
     return this.http.get<User>(this.url+`/getUserById/${id}`);
-
   }
+  
   addUser(cin:string,
     firstName:string,
     lastName:string,
     gender:string,
     image:File,
-    birthDate:Date,
+    image0:string,
+    birthDate:string,
     address:string,
     phone:string,
     mail:string,
@@ -34,14 +35,19 @@ export class UserService {
     speciality:string): Observable<any> {
 
     const formData: FormData = new FormData();
+
     formData.append('cin', cin);
     formData.append('firstName', firstName);
     formData.append('lastName', lastName);
     formData.append('gender', gender);
     formData.append('image', image);
-    /*const formattedDate = new Date(birthDate).toISOString().substring(0, 10);
-    formData.append('birthDate', formattedDate);*/
-    
+    formData.append('image0', image0);
+
+
+    const dateObj1 = new Date(birthDate);
+    const formattedBirthDate = `${dateObj1.getFullYear()}/${(dateObj1.getMonth()+1).toString().padStart(2, '0')}/${dateObj1.getDate().toString().padStart(2, '0')}`;
+    formData.append('birthDate', formattedBirthDate);
+
     formData.append('address', address);
     formData.append('phone', phone);
     formData.append('mail', mail);
@@ -59,26 +65,26 @@ export class UserService {
 
 updateUser(
   id: number,
-  cin?: string,
-  firstName?: string,
-  lastName?: string,
-  gender?: string,
-  image?: File,
-  birthDate?:Date,
-  address?: string,
-  phone?: string,
-  mail?: string,
-  password?: string,
-  Department?: string,
-  HiringDate?: Date,
-  evaluator?: boolean,
-  jury?: boolean,
-  speaker?: boolean,
-  bacSection?: string,
-  educationLevel?: string,
-  speciality?: string,
-  classe?: string,
-  role?: string): Observable<any> {
+  cin: string,
+  firstName: string,
+  lastName: string,
+  gender: string,
+  image: File,
+  image0:string,
+  birthDate:string,
+  address: string,
+  phone: string,
+  mail: string,
+  Department: string,
+  HiringDate: string,
+  evaluator: boolean,
+  jury: boolean,
+  speaker: boolean,
+  bacSection: string,
+  educationLevel: string,
+  speciality: string,
+  classe: string,
+  role: string): Observable<any> {
 
 const formData: FormData = new FormData();
 formData.append('id', id.toString());
@@ -87,16 +93,26 @@ if (firstName) formData.append('firstName', firstName);
 if (lastName) formData.append('lastName', lastName);
 if (gender) formData.append('gender', gender);
 if (image) formData.append('image', image);
-if (birthDate) formData.append('birthDate', birthDate.toISOString());
+formData.append('image0', image0);
+
+if (birthDate){
+    const dateObj1 = new Date(birthDate);
+    const formattedBirthDate = `${dateObj1.getFullYear()}/${(dateObj1.getMonth()+1).toString().padStart(2, '0')}/${dateObj1.getDate().toString().padStart(2, '0')}`;
+    formData.append('birthDate', formattedBirthDate);
+}
 if (address) formData.append('address', address);
 if (phone) formData.append('phone', phone);
 if (mail) formData.append('mail', mail);
-if (password) formData.append('password', password);
 if (Department) formData.append('Department', Department);
-if (HiringDate) formData.append('HiringDate', HiringDate.toISOString());
-if (evaluator) formData.append('evaluator', evaluator.toString());
-if (jury) formData.append('jury', jury.toString());
-if (speaker) formData.append('speaker', speaker.toString());
+if (HiringDate){
+  const dateObj2 = new Date(HiringDate);
+  const formattedHiringDate = `${dateObj2.getFullYear()}/${(dateObj2.getMonth()+1).toString().padStart(2, '0')}/${dateObj2.getDate().toString().padStart(2, '0')}`;
+  formData.append('HiringDate', formattedHiringDate);
+}
+
+formData.append('evaluator', evaluator.toString());
+formData.append('jury', jury.toString());
+formData.append('speaker', speaker.toString());
 if (bacSection) formData.append('bacSection', bacSection);
 if (educationLevel) formData.append('educationLevel', educationLevel);
 if (speciality) formData.append('speciality', speciality);
@@ -108,6 +124,11 @@ headers.append('Content-Type', 'multipart/form-data');
 headers.append('Accept', 'application/json');
 
 return this.http.put(this.url + '/updateUser', formData, { headers: headers });
+}
+
+updateUserRole(id: number, role: string) {
+  const url = `${this.url}/updateUserRole/${id}/admin?role=${role}`;
+  return this.http.put(url,{});
 }
 
 }

@@ -26,11 +26,9 @@ import { UpdateEventComponent } from './components/event/update-event/update-eve
 import { ListEventComponent } from './components/event/list-event/list-event.component';
 import { DateFormatPipe } from './date-format.pipe';
 import { InvitationSpeakerComponent } from './components/invitation/invitation-speaker/invitation-speaker.component';
-import { InvitationStudentsComponent } from './components/invitation/invitation-students/invitation-students.component';
 import { AddOfferCandidacyComponent } from './components/offerCandidacy/add-offer-candidacy/add-offer-candidacy.component';
 import { ShowOfferCandidacyComponent } from './components/offerCandidacy/show-offer-candidacy/show-offer-candidacy.component';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
-import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { ShowInterviewComponent } from './components/interview/show-interview/show-interview.component';
 import { AddUserComponent } from './components/user/add-user/add-user.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -48,6 +46,13 @@ import { ListtestComponent } from './components/test/listtest/listtest.component
 
 import { MatDialogModule } from '@angular/material/dialog';
 import { AddadmissioncandidacyComponent } from './components/admissioncandidacy/addadmissioncandidacy/addadmissioncandidacy.component';
+import { ListRoleComponent } from './components/role/list-role/list-role.component';
+import { ShowUserComponent } from './components/user/show-user/show-user.component';
+import { ShowInvitationByEventComponent } from './components/invitation/show-invitation-by-event/show-invitation-by-event.component';
+import { AddRoomComponent } from './components/room/add-room/add-room.component';
+import { ShowRoomComponent } from './components/room/show-room/show-room.component';
+import { ListRoomsComponent } from './components/room/list-rooms/list-rooms.component';
+import { UpdateRoomComponent } from './components/room/update-room/update-room.component';
 
 
 
@@ -74,7 +79,6 @@ import { AddadmissioncandidacyComponent } from './components/admissioncandidacy/
     ListEventComponent,
     DateFormatPipe,
     InvitationSpeakerComponent,
-    InvitationStudentsComponent,
     AddOfferCandidacyComponent,
     ShowOfferCandidacyComponent,
     ShowInterviewComponent,
@@ -88,10 +92,15 @@ import { AddadmissioncandidacyComponent } from './components/admissioncandidacy/
     ShowtestComponent,
     ListtestComponent,
     AddadmissioncandidacyComponent,
-    
 
-    
-  
+    ListRoleComponent,
+    ShowUserComponent,
+    ShowInvitationByEventComponent,
+    AddRoomComponent,
+    ShowRoomComponent,
+    ListRoomsComponent,
+    UpdateRoomComponent,
+        
   ],
   imports: [
     BrowserModule,

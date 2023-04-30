@@ -1,9 +1,9 @@
 export class Event {
     id!:number;
     name!:string;
-    date!: Date;
+    date?: Date;
     space!:string;
-    planning!:Blob;
+    planning?:string;
 
 
 }

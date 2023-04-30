@@ -18,16 +18,26 @@
                         <label class="form-label">docCV</label>
                         <input type="file" class="form-control" name="docCV" (change)="onDocCVSelect($event)" required #docCVInput>
                         <span style="color: red;" *ngIf="addForm.submitted && !docCVInput.files?.length">docCV is required</span>
-                    </div>
+                        <div [hidden]="!docCVInput.files?.length" style="display: flex; flex-direction: column; margin-left: 10px;">
+                                <img *ngIf="cvSrc && cvSrc != ''"[src]="cvSrc" alt="Image" class="media-container">
+                        </div>
+                      </div>
+                      
                     <div class="mb-3">
                         <label class="form-label">docDiploma</label>
                         <input type="file" class="form-control" name="docDiploma" (change)="onDocDiplomaSelect($event)" required #docDiplomaInput>
                         <span style="color: red;" *ngIf="addForm.submitted && !docDiplomaInput.files?.length">docDiploma is required</span>
+                        <div [hidden]="!docDiplomaInput.files?.length" style="display: flex; flex-direction: column; margin-left: 10px;">
+                                <img *ngIf="diplomaSrc && diplomaSrc != ''" [src]="diplomaSrc" alt="Image" class="media-container">
+                         </div>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">docLetter</label>
                         <input type="file" class="form-control" name="docLetter" (change)="onDocLetterSelect($event)" required #docLetterInput>
                         <span style="color: red;" *ngIf="addForm.submitted && !docLetterInput.files?.length">docLetter is required</span>
+                        <div [hidden]="!docLetterInput.files?.length" style="display: flex; flex-direction: column; margin-left: 10px;">
+                            <img *ngIf="letterSrc && letterSrc != ''" [src]="letterSrc" alt="Image" class="media-container">
+                        </div>
                     </div>
                     
                     <div class="mb-3 ">
