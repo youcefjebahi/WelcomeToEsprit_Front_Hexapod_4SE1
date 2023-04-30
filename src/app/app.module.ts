@@ -36,6 +36,16 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import { UpdateUserComponent } from './components/user/update-user/update-user.component';
+import {AddQuestionComponent } from './components/question/add-question/add-question.component';
+import { ListQuestionComponent } from './components/question/list-question/list-question.component';
+import { ShowQuestionComponent } from './components/question/show-question/show-question.component';
+import { AddTestComponent } from './components/test/addtest/addtest.component';
+import { UpdatetestComponent } from './components/test/updatetest/updatetest.component';
+import { ShowtestComponent } from './components/test/showtest/showtest.component';
+import { ListtestComponent } from './components/test/listtest/listtest.component';
+
+import { MatDialogModule } from '@angular/material/dialog';
+import { AddadmissioncandidacyComponent } from './components/admissioncandidacy/addadmissioncandidacy/addadmissioncandidacy.component';
 import { ListRoleComponent } from './components/role/list-role/list-role.component';
 import { ShowUserComponent } from './components/user/show-user/show-user.component';
 import { ShowInvitationByEventComponent } from './components/invitation/show-invitation-by-event/show-invitation-by-event.component';
@@ -74,6 +84,15 @@ import { UpdateRoomComponent } from './components/room/update-room/update-room.c
     ShowInterviewComponent,
     AddUserComponent,
     UpdateUserComponent,
+    AddQuestionComponent,
+    ListQuestionComponent,
+    ShowQuestionComponent,
+    AddTestComponent,
+    UpdatetestComponent,
+    ShowtestComponent,
+    ListtestComponent,
+    AddadmissioncandidacyComponent,
+
     ListRoleComponent,
     ShowUserComponent,
     ShowInvitationByEventComponent,
@@ -93,7 +112,8 @@ import { UpdateRoomComponent } from './components/room/update-room/update-room.c
     ReactiveFormsModule,
     MatInputModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule, 
+   
 
   ],
   exports: [

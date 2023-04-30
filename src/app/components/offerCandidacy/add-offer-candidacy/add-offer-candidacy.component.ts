@@ -21,6 +21,10 @@ export class AddOfferCandidacyComponent {
   establishment: string = '';
   docDiploma?: File;
   docCV?: File;
+
+
+
+  
   docLetter?: File;
   days!: string[];
   hours!: string[];
