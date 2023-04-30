@@ -1,0 +1,55 @@
+<main id="main">
+     
+    <div id="about" class="about-area area-padding">
+        <div class="container">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <br>
+            <h2 class="center">Show OfferCandidacy</h2>
+            
+            <ul *ngIf="offerCandidacy">
+              <div style="margin-right: 20px">
+              <li><strong>Reference:</strong>  {{offerCandidacy.id}}</li>
+              <li><strong>Establishment:</strong> {{offerCandidacy.establishment}}</li>
+              <li><strong>Documents:</strong></li>
+              </div>
+              <div style="display: flex">
+                <div>
+                  <li><em>CV</em> 
+                    <div *ngIf="offerCandidacy.docCV" class="media-container" (click)="toggleFullScreen($event)">
+                      <img [src]="'data:image/jpeg;base64,' + offerCandidacy.docCV" alt="CV" class="media">
+                    </div>
+                  </li>
+                </div>
+                <div>
+                  <li><em>Diploma</em> 
+                    <div *ngIf="offerCandidacy.docDiploma" class="media-container" (click)="toggleFullScreen($event)">
+                      <img [src]="'data:image/jpeg;base64,' + offerCandidacy.docDiploma" alt="Diploma" class="media">
+                    </div>
+                  </li>
+                </div>
+                <div>
+                  <li><em>Cover Letter </em> 
+                    <div *ngIf="offerCandidacy.docLetter" class="media-container" (click)="toggleFullScreen($event)">
+                      <img [src]="'data:image/jpeg;base64,' + offerCandidacy.docLetter" alt="Letter" class="media" >
+                    </div>
+                  </li>
+                </div>
+              </div>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div *ngIf="user && interview && interview.user.id==user.id || role=='ADMIN'">
+      <app-show-user *ngIf="offerCandidacy" [id]="offerCandidacy.user.id"></app-show-user>
+    </div>
+
+    <!--
+      <div class="media-container" (click)="toggleFullScreen($event)">
+                  <video controls class="media">
+                    <source [src]="'data:video/mp4;base64,' + offerCandidacy.docDiploma" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              
+              -->

@@ -1,3 +1,4 @@
+
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -11,8 +12,7 @@ import { OfferService } from 'src/app/services/offer.service';
 })
 export class UpdateOfferComponent {
   offer!:Offer;
-  defaultSpeciality = 'Default Speciality';
-  defaultDescription = 'Default Description';
+
   
   constructor(private offerService:OfferService,private route: ActivatedRoute, private router: Router){}
   
@@ -29,7 +29,7 @@ export class UpdateOfferComponent {
 
   updateOffer( F: NgForm){
     this.offerService.updateOffer(this.offer).subscribe(() => {
-      this.router.navigate(['/admin/show', this.offer.id]);
+      this.router.navigate(['/admin/offer/show', this.offer.id]);
     });
   }
 }

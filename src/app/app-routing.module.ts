@@ -11,6 +11,28 @@ import { ListOffersComponent } from './components/offer/list-offers/list-offers.
 import { LoginComponent } from './components/user/login/login.component';
 import { ListPostComponent } from './components/post/list-post/list-post.component';
 import { PostadmComponent } from './components/post/postadm/postadm.component';
+import { AddEventComponent } from './components/event/add-event/add-event.component';
+import { ListEventComponent } from './components/event/list-event/list-event.component';
+import { UpdateEventComponent } from './components/event/update-event/update-event.component';
+import { ShowEventComponent } from './components/event/show-event/show-event.component';
+import { InvitationSpeakerComponent } from './components/invitation/invitation-speaker/invitation-speaker.component';
+import { AddOfferCandidacyComponent } from './components/offerCandidacy/add-offer-candidacy/add-offer-candidacy.component';
+import { ShowOfferCandidacyComponent } from './components/offerCandidacy/show-offer-candidacy/show-offer-candidacy.component';
+import { ShowInterviewComponent } from './components/interview/show-interview/show-interview.component';
+import { AddUserComponent } from './components/user/add-user/add-user.component';
+import { UpdateUserComponent } from './components/user/update-user/update-user.component';
+import { AddQuestionComponent } from './components/question/add-question/add-question.component';
+import { ListQuestionComponent } from './components/question/list-question/list-question.component';
+import { ShowQuestionComponent } from './components/question/show-question/show-question.component';
+import { AddTestComponent } from './components/test/addtest/addtest.component'; 
+import { UpdatetestComponent } from './components/test/updatetest/updatetest.component'; 
+import { ShowtestComponent } from './components/test/showtest/showtest.component'; 
+import { ListtestComponent } from './components/test/listtest/listtest.component';
+import { ListRoleComponent } from './components/role/list-role/list-role.component';
+import { ShowUserComponent } from './components/user/show-user/show-user.component';
+import { ShowInvitationByEventComponent } from './components/invitation/show-invitation-by-event/show-invitation-by-event.component';
+import { ShowRoomComponent } from './components/room/show-room/show-room.component';
+import { AddRoomComponent } from './components/room/add-room/add-room.component';
 
 const routes: Routes = [
   {
@@ -27,27 +49,118 @@ const routes: Routes = [
         component:PostadmComponent
       },
       {
-        path:'offer',
+        path:'offer/list',
         component:ListOffersComponent
       },
       {
-        path:'add',
+        path:'offer/add',
         component:AddOfferComponent
       },
       {
-        path:'update/:id',
+        path:'offer/update/:id',
         component:UpdateOfferComponent
       },
       {
-        path:'show/:id',
+        path:'offer/show/:id',
         component:ShowOfferComponent
       },
       {
-        path:'login',
-        component:LoginComponent
+        path:'getEvents',
+        component:ListEventComponent
+      },
+      {
+        path:'addEvent',
+        component:AddEventComponent
+      },
+      {
+        path:'addQuestion',
+        component:AddQuestionComponent
+      },
+      {
+        path:'addTest',
+        component:AddTestComponent
+      },
+      {
+        path:'updateTest',
+        component: UpdatetestComponent
+      },
+      {
+        path:'showTest',
+        component: ShowtestComponent
+      },
+      
+      {
+        path:'listQuestion',
+        component:ListQuestionComponent
+      },
+      {
+        path:'listTest',
+        component:ListtestComponent
+      },
+     
+      
+
+ 
+      {
+        path:'showQuestion',
+        component:ShowQuestionComponent
+      },
+      {
+        path:'updateEvent',
+        path:'updateEvent/:id',
+        component:UpdateEventComponent
+      },
+      {
+        path:'showEvent/:id',
+        component:ShowEventComponent
+      },
+      {
+        path:'invitationSpeaker/:id',
+        component:InvitationSpeakerComponent
+        
+      },
+      {
+        path:'showInvitations/:id',
+        component:ShowInvitationByEventComponent
+        
+      },
+  
+      {
+        path:'offerCandidacy/show/:id',
+        component:ShowOfferCandidacyComponent
+      },
+      {
+        path:'user/update/:id',
+        component:UpdateUserComponent
+      },
+      {
+        path:'interview/show/:id',
+        component:ShowInterviewComponent
+      },
+      {
+        path:'role/list',
+        component:ListRoleComponent
+      },
+      {
+        path:'user/show/:id',
+        component:ShowUserComponent
+      },
+      {
+        path:'room/show/:id',
+        component:ShowRoomComponent
+      },
+      {
+        path:'room/add',
+        component:AddRoomComponent
       }
     ]
   },
+
+
+
+
+
+  
   {
     path:'',
     component:AllTemplateUserComponent,
@@ -65,24 +178,37 @@ const routes: Routes = [
       
       
       {
-        path:'offer',
+        path:'offer/list',
         component:ListOffersComponent
-      },
-      {
-        path:'add',
-        component:AddOfferComponent
-      },
-      {
-        path:'update/:id',
-        component:UpdateOfferComponent
-      },
-      {
-        path:'show/:id',
-        component:ShowOfferComponent
       },
       {
         path:'login',
         component:LoginComponent
+      },
+      
+      {
+        path:'user/add',
+        component:AddUserComponent
+      },
+      {
+        path:'offerCandidacy/add/:id',
+        component:AddOfferCandidacyComponent
+      },
+      {
+        path:'offerCandidacy/show/:id',
+        component:ShowOfferCandidacyComponent
+      },
+      {
+        path:'interview/show/:id',
+        component:ShowInterviewComponent
+      },
+      {
+        path:'user/update/:id',
+        component:UpdateUserComponent
+      },
+      {
+        path:'user/show/:id',
+        component:ShowUserComponent
       }
     ]
   }

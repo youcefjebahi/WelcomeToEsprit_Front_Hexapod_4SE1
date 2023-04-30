@@ -1,0 +1,12 @@
+<main id="main">
+  <div *ngIf="interview" id="about" class="about-area area-padding">
+    <div class="container">
+        <br>
+        <h4 class="center">Interview informations:</h4><br><br>
+        Date: {{interview.date  | date:'EEEE dd-MM-yyyy \'at\' HH:mm'}}
+      </div>
+  </div>
+</main>
+<div>
+  <app-show-room [room]="interview.room"></app-show-room>
+</div>
