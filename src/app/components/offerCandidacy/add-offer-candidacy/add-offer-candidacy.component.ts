@@ -26,8 +26,17 @@ export class AddOfferCandidacyComponent {
   hours!: string[];
   day: string = '';
   day1: string = '';
-
   hour: string = '';
+
+  docCvValid=false;
+  docDiplomaValid=false;
+  docLetterValid=false;
+
+  cvSrc!:string;
+  diplomaSrc!:string;
+  letterSrc!:string;
+
+
   constructor(private authService: AuthService,private offerCandidacyService:OfferCandidacyService, private offerService:OfferService, private interviewService:InterviewService ,private router: Router,private route: ActivatedRoute){}
   idOffer!:number;
   
@@ -40,17 +49,57 @@ export class AddOfferCandidacyComponent {
       this.days = days;
     });
   }
-  onDocCVSelect(event: any) {
+
+/****** */
+onDocCVSelect(event: any) {
+  const file = event.target.files[0];
+  const reader = new FileReader();
+
+  reader.onload = () => {
+    if (reader.result !== null) {
+      const base64String = reader.result.toString().split(',')[1];
+      this.cvSrc = `data:image/jpeg;base64,${base64String}`;
+    }
+  };
+  if(file){
+    reader.readAsDataURL(file);
     this.docCV = event.target.files[0];
+  }
+  this.docCvValid = event.target.files != null && event.target.files.length > 0;
 }
 
 onDocDiplomaSelect(event: any) {
-    this.docDiploma = event.target.files[0];
+  const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = () => {
+      if (reader.result !== null) {
+        const base64String = reader.result.toString().split(',')[1];
+        this.diplomaSrc = `data:image/jpeg;base64,${base64String}`;
+    };
+}
+if(file){
+  reader.readAsDataURL(file);
+  this.docDiploma = event.target.files[0];
+}
+this.docDiplomaValid = event.target.files != null && event.target.files.length > 0;
+}
+onDocLetterSelect(event: any) {
+  const file = event.target.files[0];
+  const reader = new FileReader();
+  reader.onload = () => {
+    if (reader.result !== null) {
+      const base64String = reader.result.toString().split(',')[1];
+      this.letterSrc = `data:image/jpeg;base64,${base64String}`;
+  };
+  }
+  if(file){
+    reader.readAsDataURL(file);
+    this.docLetter = event.target.files[0];
+  }
+    this.docLetterValid = event.target.files != null && event.target.files.length > 0;
 }
 
-onDocLetterSelect(event: any) {
-    this.docLetter = event.target.files[0];
-}
+
     
 addOfferCandidacy(F:NgForm) {
 
@@ -58,21 +107,17 @@ addOfferCandidacy(F:NgForm) {
   this.day = F.controls['day'].value;
   this.hour = F.controls['hour'].value;
 
-  if (this.docDiploma instanceof File && this.docCV instanceof File && this.docLetter instanceof File) {
+  if (this.docDiploma instanceof File && this.docCV instanceof File && this.docLetter instanceof File && this.docCvValid && this.docDiplomaValid && this.docLetterValid) {
     
     this.loading = true;
-
     this.offerCandidacyService.addOfferCandidacy(this.idOffer, this.establishment, this.docDiploma, this.docCV, this.docLetter, this.day, this.hour)
       .subscribe(
         data => {
           const idOfferCandidacyCreated=data.id;
           this.router.navigate([`/offerCandidacy/show/${idOfferCandidacyCreated}`]);
           this.loading = false;
-
       }
       );
-  } else {
-    console.log('docDiploma is not a File or is undefined');
   }
 
 }
@@ -82,7 +127,30 @@ updateHours() {
     this.hours = hours;
   });
 }
-
+getFileFormat(data: string): string {
+  const signature = data.substring(0, 10);
+  switch (signature) {
+    case 'iVBORw0KGg': // PNG
+      return 'png';
+    case 'JVBERi0xLj': // PDF
+      return 'pdf';
+      case '/9j/4AAQSk': // JPEG
+      return 'jpeg';
+    default:
+      return '';
+  }
+}
+getFileFormat2(fileName: string) {
+  if (fileName.endsWith('.jpeg') || fileName.endsWith('.jpg') || fileName.endsWith('.JPG') || fileName.endsWith('.JPEG')) {
+    return 'jpg';
+  } else if (fileName.endsWith('.png') || fileName.endsWith('.PNG')) {
+    return 'png';
+  } else if (fileName.endsWith('.pdf') || fileName.endsWith('.PDF')) {
+    return 'pdf';
+  } else {
+    return 'Unknown';
+  }
+}
 
 }
 

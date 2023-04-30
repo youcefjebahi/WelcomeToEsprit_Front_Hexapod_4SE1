@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Interview } from 'src/app/models/interview';
 import { InterviewService } from 'src/app/services/interview.service';
@@ -9,7 +9,7 @@ import { InterviewService } from 'src/app/services/interview.service';
   styleUrls: ['./show-interview.component.css']
 })
 export class ShowInterviewComponent {
-  interview!: Interview;
+   @Input() interview!: Interview;
   constructor(private interviewService: InterviewService,private route: ActivatedRoute){}
   
   ngOnInit() {  
@@ -22,8 +22,6 @@ export class ShowInterviewComponent {
     this.interviewService.getInterviewByOfferCandidacyId(id).subscribe(
       data => {
         this.interview = data;
-        console.log(data);
-          console.log("candidate: " + data?.offerCandidacy?.user?.firstName);
     });
   }
 }

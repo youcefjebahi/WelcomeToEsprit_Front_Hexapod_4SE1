@@ -22,6 +22,8 @@ import { UpdateUserComponent } from './components/user/update-user/update-user.c
 import { ListRoleComponent } from './components/role/list-role/list-role.component';
 import { ShowUserComponent } from './components/user/show-user/show-user.component';
 import { ShowInvitationByEventComponent } from './components/invitation/show-invitation-by-event/show-invitation-by-event.component';
+import { ShowRoomComponent } from './components/room/show-room/show-room.component';
+import { AddRoomComponent } from './components/room/add-room/add-room.component';
 
 const routes: Routes = [
   {
@@ -94,6 +96,14 @@ const routes: Routes = [
       {
         path:'user/show/:id',
         component:ShowUserComponent
+      },
+      {
+        path:'room/show/:id',
+        component:ShowRoomComponent
+      },
+      {
+        path:'room/add',
+        component:AddRoomComponent
       }
     ]
   },
