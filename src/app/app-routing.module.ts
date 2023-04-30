@@ -9,6 +9,8 @@ import { UpdateOfferComponent } from './components/offer/update-offer/update-off
 import { ShowOfferComponent } from './components/offer/show-offer/show-offer.component';
 import { ListOffersComponent } from './components/offer/list-offers/list-offers.component';
 import { LoginComponent } from './components/user/login/login.component';
+import { ListPostComponent } from './components/post/list-post/list-post.component';
+import { PostadmComponent } from './components/post/postadm/postadm.component';
 
 const routes: Routes = [
   {
@@ -18,6 +20,11 @@ const routes: Routes = [
       {
         path:'',
         component:BodyAdminComponent
+      },
+      
+      {
+        path:'post',
+        component:PostadmComponent
       },
       {
         path:'offer',
@@ -49,6 +56,14 @@ const routes: Routes = [
         path:'',
         component:BodyUserComponent
       },
+     
+      {
+        path:'post',
+        component:ListPostComponent
+        
+      },
+      
+      
       {
         path:'offer',
         component:ListOffersComponent

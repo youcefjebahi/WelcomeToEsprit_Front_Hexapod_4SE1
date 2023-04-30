@@ -20,7 +20,23 @@ import { ShowOfferComponent } from './components/offer/show-offer/show-offer.com
 import { ListOffersComponent } from './components/offer/list-offers/list-offers.component';
 import { LoginComponent } from './components/user/login/login.component';
 import { TokenInterceptor } from './services/tokenInterceptor';
-
+import { PostComponent } from './components/post/post.component';
+import { ListPostComponent } from './components/post/list-post/list-post.component';
+import { AddPostComponent } from './components/post/add-post/add-post.component';
+import { PostCommentComponent } from './components/post/post-comment/post-comment.component';
+import { PostRatingComponent } from './components/post/post-rating/post-rating.component';
+import { StarRatingModule } from 'angular-star-rating';
+import { NgxStarsModule } from 'ngx-stars';
+import { ToastrModule } from 'ngx-toastr';
+//import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PostadmComponent } from './components/post/postadm/postadm.component';
+import { ChartsModule } from 'angular-bootstrap-md';
+import { NgChartsModule } from 'ng2-charts';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ChartModule } from 'primeng/chart';
+import { MessagesModule } from 'primeng/messages';
+import { RatingModule } from 'primeng/rating';
+import { SpeedDialModule } from 'primeng/speeddial';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,14 +53,34 @@ import { TokenInterceptor } from './services/tokenInterceptor';
     UpdateOfferComponent,
     ShowOfferComponent,
     ListOffersComponent,
-    LoginComponent
+    LoginComponent,
+    PostComponent,
+    ListPostComponent,
+    AddPostComponent,
+    PostCommentComponent,
+    PostRatingComponent,
+    PostadmComponent,
+    
+    
+    
   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    StarRatingModule.forRoot(),
+    NgxStarsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    ChartsModule,
+    NgChartsModule,
+    ChartModule,
+    MessagesModule,
+    RatingModule,
+    SpeedDialModule
+
 
   ],
   providers: [{
