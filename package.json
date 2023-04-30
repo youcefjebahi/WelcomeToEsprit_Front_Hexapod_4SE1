@@ -20,6 +20,7 @@
     "@angular/router": "^15.2.0",
     "@kurkle/color": "^0.3.2",
     "bootstrap": "^5.2.3",
+    "cors": "^2.8.5",
     "file-type": "^18.2.1",
     "ng2-pdf-viewer": "^9.1.5",
     "ngx-cookie-service": "^15.0.0",

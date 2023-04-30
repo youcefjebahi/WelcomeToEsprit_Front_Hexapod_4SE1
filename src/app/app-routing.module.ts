@@ -20,7 +20,13 @@ import { ShowOfferCandidacyComponent } from './components/offerCandidacy/show-of
 import { ShowInterviewComponent } from './components/interview/show-interview/show-interview.component';
 import { AddUserComponent } from './components/user/add-user/add-user.component';
 import { UpdateUserComponent } from './components/user/update-user/update-user.component';
-
+import { AddQuestionComponent } from './components/question/add-question/add-question.component';
+import { ListQuestionComponent } from './components/question/list-question/list-question.component';
+import { ShowQuestionComponent } from './components/question/show-question/show-question.component';
+import { AddTestComponent } from './components/test/addtest/addtest.component'; 
+import { UpdatetestComponent } from './components/test/updatetest/updatetest.component'; 
+import { ShowtestComponent } from './components/test/showtest/showtest.component'; 
+import { ListtestComponent } from './components/test/listtest/listtest.component';
 const routes: Routes = [
   {
     path:'admin',
@@ -53,6 +59,39 @@ const routes: Routes = [
       {
         path:'addEvent',
         component:AddEventComponent
+      },
+      {
+        path:'addQuestion',
+        component:AddQuestionComponent
+      },
+      {
+        path:'addTest',
+        component:AddTestComponent
+      },
+      {
+        path:'updateTest',
+        component: UpdatetestComponent
+      },
+      {
+        path:'showTest',
+        component: ShowtestComponent
+      },
+      
+      {
+        path:'listQuestion',
+        component:ListQuestionComponent
+      },
+      {
+        path:'listTest',
+        component:ListtestComponent
+      },
+     
+      
+
+ 
+      {
+        path:'showQuestion',
+        component:ShowQuestionComponent
       },
       {
         path:'updateEvent',
