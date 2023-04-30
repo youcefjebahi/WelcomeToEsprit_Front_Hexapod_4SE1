@@ -1,17 +1,12 @@
 <main id="main">
-
-    <div id="about" class="about-area area-padding">
-        <div class="container">
-          <div class="col-md-12 col-sm-12 col-xs-12">
-            <br>
-            <h2 class="center">Show interview</h2>
-            <ul *ngIf="interview">
-                <li >Date: {{interview.date}}</li>
-                <li> Candidate: {{interview.offerCandidacy?.user?.firstName}}</li>
-            </ul>
-          </div>
-          <a [routerLink]="['/admin/offer/list']" class="btn btn-primary">Back to List</a>
-        </div>
+  <div *ngIf="interview" id="about" class="about-area area-padding">
+    <div class="container">
+        <br>
+        <h4 class="center">Interview informations:</h4><br><br>
+        Date: {{interview.date  | date:'EEEE dd-MM-yyyy \'at\' HH:mm'}}
       </div>
-    </main>
-      
+  </div>
+</main>
+<div>
+  <app-show-room [room]="interview.room"></app-show-room>
+</div>

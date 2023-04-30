@@ -17,8 +17,8 @@ export class UserService {
   }
   getUserById(id:number){
     return this.http.get<User>(this.url+`/getUserById/${id}`);
-
   }
+  
   addUser(cin:string,
     firstName:string,
     lastName:string,
