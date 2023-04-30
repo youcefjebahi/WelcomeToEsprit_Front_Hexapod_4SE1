@@ -1,0 +1,33 @@
+<br>
+<br>
+<br>
+<br>
+<div class="container mt-4 mb-7">
+    
+    <div class="d-flex justify-content-center row"> 
+      
+        <div class="col-md-9">
+            <div class="feed p-2">
+                
+                <div class="d-flex flex-row justify-content-between align-items-center p-2 bg-white border">
+                     
+
+    <div class="form-group flex-grow-1 mr-1">
+        <form (ngSubmit)="onSubmit()" class="d-flex"> 
+      <input type="text" class="form-control" id="text" [(ngModel)]="newPost.text" name="text" required placeholder="What's on your mind">
+      
+     
+      <div class="invalid-feedback">Please enter some text for the post. </div>
+      <button type="submit" class="btn btn-primary ml-2">Add</button>
+    </form>
+    <p-messages [(value)]="messages" [enableService]="false" [closable]="false"></p-messages>
+    </div> 
+
+
+</div>
+
+</div>
+</div>
+
+</div>
+

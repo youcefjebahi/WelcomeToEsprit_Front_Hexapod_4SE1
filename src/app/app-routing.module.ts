@@ -9,6 +9,8 @@ import { UpdateOfferComponent } from './components/offer/update-offer/update-off
 import { ShowOfferComponent } from './components/offer/show-offer/show-offer.component';
 import { ListOffersComponent } from './components/offer/list-offers/list-offers.component';
 import { LoginComponent } from './components/user/login/login.component';
+import { ListPostComponent } from './components/post/list-post/list-post.component';
+import { PostadmComponent } from './components/post/postadm/postadm.component';
 import { AddEventComponent } from './components/event/add-event/add-event.component';
 import { ListEventComponent } from './components/event/list-event/list-event.component';
 import { UpdateEventComponent } from './components/event/update-event/update-event.component';
@@ -40,6 +42,11 @@ const routes: Routes = [
       {
         path:'',
         component:BodyAdminComponent
+      },
+      
+      {
+        path:'post',
+        component:PostadmComponent
       },
       {
         path:'offer/list',
@@ -162,6 +169,14 @@ const routes: Routes = [
         path:'',
         component:BodyUserComponent
       },
+     
+      {
+        path:'post',
+        component:ListPostComponent
+        
+      },
+      
+      
       {
         path:'offer/list',
         component:ListOffersComponent
