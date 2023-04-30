@@ -106,7 +106,6 @@ const routes: Routes = [
         component:ShowQuestionComponent
       },
       {
-        path:'updateEvent',
         path:'updateEvent/:id',
         component:UpdateEventComponent
       },
