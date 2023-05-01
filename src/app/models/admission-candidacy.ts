@@ -16,7 +16,6 @@ export class AdmissionCandidacy {
     docReleve1!: string;
     moy2!: number;
     docReleve2!: string;
-    docCertificate!: string;
     moy3!: number;
     docReleve3!: string;
     moy4!: number;

@@ -15,20 +15,18 @@ export class AddAdmissionCandidacyComponent {
   hours!: string[];
   day1: string = '';
 
-  docBacDiplomaValid=false;
-  docBacReleveValid=false;
-  docReleve1Valid=false;
-  docReleve2Valid=false;
-  docCertificateValid=false;
-  docBacReleve3Valid=false;
-  docBacReleve4Valid=false;
-  docDiplomaValid=false;
+  docBacDiplomaValid=true;
+  docBacReleveValid=true;
+  docReleve1Valid=true;
+  docReleve2Valid=true;
+  docReleve3Valid=true;
+  docReleve4Valid=true;
+  docDiplomaValid=true;
 
   docBacDiplomaSrc!:string;
   docBacReleveSrc!:string;
   docReleve1Src!:string;
   docReleve2Src!:string;
-  docCertificateSrc!:string;
   docReleve3Src!:string;
   docReleve4Src!:string;
   docDiplomaSrc!:string;
@@ -36,7 +34,7 @@ export class AddAdmissionCandidacyComponent {
 
   constructor(private admisstionCandidacyService:AdmissioncandidacyService,private interviewService:InterviewService){}
 
-    bac!: boolean;
+    bac=false;
     docBacDiploma!: File;
     bacMoy!: number;
     docBacReleve!: File;
@@ -47,7 +45,6 @@ export class AddAdmissionCandidacyComponent {
     docReleve1!: File;
     moy2!: number;
     docReleve2!: File;
-    docCertificate!: File;
     moy3!: number;
     docReleve3!: File;
     moy4!: number;
@@ -58,16 +55,47 @@ export class AddAdmissionCandidacyComponent {
     speciality!: string;
     day!: string;
     hour!: string;
-    levels: string[] = ["1", "2", "3", "4"];
+    levels: string[] = ["bac","1", "2", "3", "4"];
 
 
     ngOnInit(): void {
       this.interviewService.getDays(2).subscribe(days => {
         this.days = days;
       });
+    
+   }
+   onBacChange(value: string) {
+    this.docBacDiplomaValid = !value;
+    this.docBacReleveValid = !value;
+ 
+
+  }
+ 
+  onMoy1Change(value: any) {
+    this.docReleve1Valid = !value;
+
+
+  }
+  onMoy2Change(value: any) {
+    this.docReleve2Valid = !value;
+  }
+  onMoy3Change(value: any) {
+    this.docReleve3Valid = !value;
+  }
+  onMoy4Change(value: any) {
+    this.docReleve4Valid = !value;
+  }
+  onDiplomaChange(value: any) {
+    this.docDiplomaValid = !value;
+
+
+  }
+   onLevelChange(level: string){
+    if(level && level!=='bac')
+    this. bac=true;
    }
    createNewCandidacy(F:NgForm) {
-
+    if(F.controls['bac'] && F.controls['bac'].value)
     this.bac = F.controls['bac'].value;
     if(F.controls['bacMoy'])
     this.bacMoy = F.controls['bacMoy'].value;
@@ -89,10 +117,19 @@ export class AddAdmissionCandidacyComponent {
     this.day = F.controls['day'].value;
     this.hour = F.controls['hour'].value;
 
-if(this.docBacDiplomaValid && this.docBacReleveValid && this.docReleve1Valid && this.docReleve2Valid && this.docBacReleve3Valid && this.docBacReleve4Valid && this.docCertificateValid && this.docDiplomaValid){
+    console.log("docBacDiplomaValid: "+this.docBacDiplomaValid);
+    console.log("docBacReleveValid: "+this.docBacReleveValid);
+    console.log("docReleve1Valid: "+this.docReleve1Valid);
+    console.log("docReleve2Valid: "+this.docReleve2Valid);
+    console.log("docReleve3Valid: "+this.docReleve3Valid);
+    console.log("docReleve4Valid: "+this.docReleve4Valid);
+    console.log("docDiplomaValid: "+this.docDiplomaValid);
+
+    if(this.docBacDiplomaValid && this.docBacReleveValid && this.docReleve1Valid && this.docReleve2Valid && this.docReleve3Valid && this.docReleve4Valid  && this.docDiplomaValid)
+    {
     this.loading = true;
       this.admisstionCandidacyService.addNewAdmissionCandidacy(this.bac,this.docBacDiploma,this.bacMoy,this.docBacReleve,this.bacYear,this.bacEstablishment,this.bacGovernorate,
-         this.moy1,this.docReleve1,this.moy2,this.docReleve2,this.docCertificate,this.moy3,this.docReleve3,this.moy4,this.docReleve4,this.diploma,this.docDiploma,this.level,this.speciality,this.day,this.hour)
+         this.moy1,this.docReleve1,this.moy2,this.docReleve2,this.moy3,this.docReleve3,this.moy4,this.docReleve4,this.diploma,this.docDiploma,this.level,this.speciality,this.day,this.hour)
          .subscribe(
           
         data => {
@@ -100,7 +137,8 @@ if(this.docBacDiplomaValid && this.docBacReleveValid && this.docReleve1Valid && 
           this.loading = false;
       }
          );
-      }
+    }
+      
     }
       onBacReleveSelect(event: any) {
         const file = event.target.files[0];
@@ -108,7 +146,7 @@ if(this.docBacDiplomaValid && this.docBacReleveValid && this.docReleve1Valid && 
         reader.onload = () => {
           if (reader.result !== null) {
             const base64String = reader.result.toString().split(',')[1];
-            this.docBacDiplomaSrc = `data:image/jpeg;base64,${base64String}`;
+            this.docBacReleveSrc = `data:image/jpeg;base64,${base64String}`;
         };
         }
         if(file){
@@ -178,7 +216,7 @@ if(this.docBacDiplomaValid && this.docBacReleveValid && this.docReleve1Valid && 
           reader.readAsDataURL(file);
           this.docReleve3 = event.target.files[0];
         }
-          this.docBacReleve3Valid = event.target.files != null && event.target.files.length > 0;
+          this.docReleve3Valid = event.target.files != null && event.target.files.length > 0;
       }
 
       onReleve4Select(event: any) {
@@ -194,24 +232,9 @@ if(this.docBacDiplomaValid && this.docBacReleveValid && this.docReleve1Valid && 
           reader.readAsDataURL(file);
           this.docReleve4 = event.target.files[0];
         }
-          this.docBacReleve4Valid = event.target.files != null && event.target.files.length > 0;
+          this.docReleve4Valid = event.target.files != null && event.target.files.length > 0;
       }
 
-      onCertificateSelect(event: any) {
-        const file = event.target.files[0];
-        const reader = new FileReader();
-        reader.onload = () => {
-          if (reader.result !== null) {
-            const base64String = reader.result.toString().split(',')[1];
-            this.docCertificateSrc = `data:image/jpeg;base64,${base64String}`;
-        };
-        }
-        if(file){
-          reader.readAsDataURL(file);
-          this.docCertificate = event.target.files[0];
-        }
-          this.docCertificateValid = event.target.files != null && event.target.files.length > 0;
-      }
 
       onDiplomaSelect(event: any) {
         const file = event.target.files[0];

@@ -22,7 +22,6 @@ export class AdmissioncandidacyService {
     docReleve1: File,
     moy2: number,
     docReleve2: File,
-    docCertificate: File,
     moy3: number,
     docReleve3: File,
     moy4: number,
@@ -47,7 +46,6 @@ export class AdmissioncandidacyService {
     if (docReleve1) formData.append('docReleve1', docReleve1);
     if (moy2) formData.append('moy2', moy2.toString());
     if (docReleve2) formData.append('docReleve2', docReleve2);
-    if (docCertificate) formData.append('docCertificate', docCertificate);
     if (moy3)  formData.append('moy3', moy3.toString());
     if (docReleve3) formData.append('docReleve3', docReleve3);
     if (moy4) formData.append('moy4', moy4.toString());
