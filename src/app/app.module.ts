@@ -68,6 +68,7 @@ import { AddRoomComponent } from './components/room/add-room/add-room.component'
 import { ShowRoomComponent } from './components/room/show-room/show-room.component';
 import { ListRoomsComponent } from './components/room/list-rooms/list-rooms.component';
 import { UpdateRoomComponent } from './components/room/update-room/update-room.component';
+import { AddAdmissionCandidacyComponent } from './components/admissioncandidacy/add-admission-candidacy/add-admission-candidacy.component';
 
 
 
@@ -118,7 +119,8 @@ import { UpdateRoomComponent } from './components/room/update-room/update-room.c
     AddRoomComponent,
     ShowRoomComponent,
     ListRoomsComponent,
-    UpdateRoomComponent
+    UpdateRoomComponent,
+    AddAdmissionCandidacyComponent
   ],
   imports: [
     BrowserModule,
