@@ -33,6 +33,7 @@ import { ShowUserComponent } from './components/user/show-user/show-user.compone
 import { ShowInvitationByEventComponent } from './components/invitation/show-invitation-by-event/show-invitation-by-event.component';
 import { ShowRoomComponent } from './components/room/show-room/show-room.component';
 import { AddRoomComponent } from './components/room/add-room/add-room.component';
+import { AddAdmissionCandidacyComponent } from './components/admissioncandidacy/add-admission-candidacy/add-admission-candidacy.component';
 
 const routes: Routes = [
   {
@@ -208,6 +209,10 @@ const routes: Routes = [
       {
         path:'user/show/:id',
         component:ShowUserComponent
+      },
+      {
+        path:'admissionCandidacy/add',
+        component:AddAdmissionCandidacyComponent
       }
     ]
   }
