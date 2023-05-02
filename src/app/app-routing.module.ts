@@ -33,6 +33,7 @@ import { ShowUserComponent } from './components/user/show-user/show-user.compone
 import { ShowInvitationByEventComponent } from './components/invitation/show-invitation-by-event/show-invitation-by-event.component';
 import { ShowRoomComponent } from './components/room/show-room/show-room.component';
 import { AddRoomComponent } from './components/room/add-room/add-room.component';
+import { ListOfferCandidaciesComponent } from './components/offerCandidacy/list-offer-candidacies/list-offer-candidacies.component';
 import { DashadminComponent } from './components/user/userAdmin/dashadmin/dashadmin.component';
 import { AddRoleComponent } from './components/role/add-role/add-role.component';
 import { AddAdmissionCandidacyComponent } from './components/admissioncandidacy/add-admission-candidacy/add-admission-candidacy.component';
@@ -108,10 +109,6 @@ const routes: Routes = [
         path:'listTest',
         component:ListtestComponent
       },
-     
-      
-
- 
       {
         path:'showQuestion',
         component:ShowQuestionComponent
@@ -162,6 +159,10 @@ const routes: Routes = [
       {
         path:'room/add',
         component:AddRoomComponent
+      },
+      {
+        path:'offerCandidacy/list/:id',
+        component:ListOfferCandidaciesComponent
       }
     ]
   },
