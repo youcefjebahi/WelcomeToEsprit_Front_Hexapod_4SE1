@@ -69,6 +69,9 @@ import { ShowRoomComponent } from './components/room/show-room/show-room.compone
 import { ListRoomsComponent } from './components/room/list-rooms/list-rooms.component';
 import { UpdateRoomComponent } from './components/room/update-room/update-room.component';
 import { ListOfferCandidaciesComponent } from './components/offerCandidacy/list-offer-candidacies/list-offer-candidacies.component';
+import { DashadminComponent } from './components/user/userAdmin/dashadmin/dashadmin.component';
+import { AddRoleComponent } from './components/role/add-role/add-role.component';
+import { AddAdmissionCandidacyComponent } from './components/admissioncandidacy/add-admission-candidacy/add-admission-candidacy.component';
 
 
 
@@ -121,6 +124,9 @@ import { ListOfferCandidaciesComponent } from './components/offerCandidacy/list-
     ListRoomsComponent,
     UpdateRoomComponent,
     ListOfferCandidaciesComponent
+    DashadminComponent,
+    AddRoleComponent
+    AddAdmissionCandidacyComponent
   ],
   imports: [
     BrowserModule,

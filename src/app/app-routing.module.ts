@@ -34,6 +34,9 @@ import { ShowInvitationByEventComponent } from './components/invitation/show-inv
 import { ShowRoomComponent } from './components/room/show-room/show-room.component';
 import { AddRoomComponent } from './components/room/add-room/add-room.component';
 import { ListOfferCandidaciesComponent } from './components/offerCandidacy/list-offer-candidacies/list-offer-candidacies.component';
+import { DashadminComponent } from './components/user/userAdmin/dashadmin/dashadmin.component';
+import { AddRoleComponent } from './components/role/add-role/add-role.component';
+import { AddAdmissionCandidacyComponent } from './components/admissioncandidacy/add-admission-candidacy/add-admission-candidacy.component';
 
 const routes: Routes = [
   {
@@ -43,6 +46,14 @@ const routes: Routes = [
       {
         path:'',
         component:BodyAdminComponent
+      },
+      {
+        path:'user',
+        component:DashadminComponent
+      },
+      {
+        path:'addRole',
+        component:AddRoleComponent
       },
       
       {
@@ -209,6 +220,10 @@ const routes: Routes = [
       {
         path:'user/show/:id',
         component:ShowUserComponent
+      },
+      {
+        path:'admissionCandidacy/add',
+        component:AddAdmissionCandidacyComponent
       }
     ]
   }
