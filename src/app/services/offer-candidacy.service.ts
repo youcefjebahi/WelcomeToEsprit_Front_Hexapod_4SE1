@@ -42,4 +42,16 @@ export class OfferCandidacyService {
   }
   deleteOfferCandidacyById(id:number){
     return this.http.delete(this.url+'/deleteOfferCandidacyById'+`/${id}`);
-  }}
+  }
+  updateOfferCandidacyStatus(id: number, status: string) {
+    const url = this.url + `/updateOfferCandidacyStatus?id=${id}&status=${status}`;
+    return this.http.put(url, null);
+  }
+  
+  updateOfferCandidacyScore(id: number, score: number) {
+    const url = this.url + `/updateOfferCandidacyScore?id=${id}&score=${score}`;
+    return this.http.put(url, null);
+  }
+  
+
+}

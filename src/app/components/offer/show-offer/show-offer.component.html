@@ -22,7 +22,10 @@
       </tbody>
     </table>
   </div>
+  <button *ngIf="role=='ADMIN'" class="btn btn-outline-info" routerLink="/admin/offerCandidacy/list/{{offer.id}}">show candidacies</button>
+  <div><br></div>
   <a [routerLink]="['/admin/offer/list']" class="btn btn-primary">Back to List</a>
+
 </div>
 
   </div>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Offer } from 'src/app/models/offer';
+import { AuthService } from 'src/app/services/auth.service';
 import { OfferService } from 'src/app/services/offer.service';
 
 @Component({
@@ -9,8 +10,10 @@ import { OfferService } from 'src/app/services/offer.service';
   styleUrls: ['./show-offer.component.css']
 })
 export class ShowOfferComponent {
-  constructor(private offerService:OfferService,private route: ActivatedRoute){}
+  constructor(private offerService:OfferService,private route: ActivatedRoute,private authService: AuthService){}
   offer=new Offer();
+  role=this.authService.getRole();
+
   ngOnInit() {  
     this.route.paramMap.subscribe(params => {
       const id = Number(params.get('id'));
