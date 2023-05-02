@@ -11,4 +11,9 @@ export class RoleService {
   url="http://localhost:1111/welcometoesprit/api/role";
   getAllRoles(){
     return this.http.get<Role[]>(this.url+'/getallRoles');
-  }}
+  }
+  addRole(role: string){
+    return this.http.post<Role>(this.url+'/add', role);
+  }
+  
+}

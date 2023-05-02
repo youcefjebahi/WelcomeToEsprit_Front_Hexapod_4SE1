@@ -18,6 +18,9 @@ export class UserService {
   getUserById(id:number){
     return this.http.get<User>(this.url+`/getUserById/${id}`);
   }
+  getUsers(){
+    return this.http.get<User[]>(this.url+`/getAllUsers/admin`);
+  }
   
   addUser(cin:string,
     firstName:string,
@@ -130,5 +133,7 @@ updateUserRole(id: number, role: string) {
   const url = `${this.url}/updateUserRole/${id}/admin?role=${role}`;
   return this.http.put(url,{});
 }
+deleteUserById(id:number){
+  return this.http.delete(this.url+`/deleteUser/${id}`);
+}}
 
-}
