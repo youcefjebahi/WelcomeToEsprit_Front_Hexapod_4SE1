@@ -1,4 +1,4 @@
-<main id="main" class="main">
+<main *ngIf="user" id="main" class="main">
     <div id="about" class="about-area area-padding">
         <div class="container">
             <div class="col-md-12 col-sm-12 col-xs-12">
@@ -10,7 +10,6 @@
                         <h2>{{user.firstName}} {{user.lastName}}</h2>
                         <p>{{user.role.role}}</p>
                         <p *ngIf="user.role.role=='STUDENT'" ><strong></strong> {{user.classe}}</p>
-
                         <div *ngIf="role=='ADMIN'" class="mb-3">
                           <form #roleForm="ngForm" (ngSubmit)="updateUserRole(roleForm)">
                             <div class="row g-3 align-items-center">
@@ -29,15 +28,11 @@
                             </div>
                           </form>
                         </div>
-                        
-
-
                       </div>
                       <div class="col-md-8">
                         <div style="display: flex;">
                         <h3>Profil Informations</h3>
                         <a *ngIf="role=='ADMIN'" [routerLink]="['/admin/user/update/', this.user.id]" style="margin-left: 20px;">UPDATE</a>
-
                         </div>
                         <hr>
                         <div class="row">
@@ -85,10 +80,6 @@
                       </div>
                     </div>
                   </div>
-                  
-                  
-                  
-
             </div>
         </div>
     </div>

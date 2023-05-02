@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, Input } from '@angular/core';
+import { EmailValidator, NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Role } from 'src/app/models/role';
 import { User } from 'src/app/models/user';
@@ -14,22 +14,25 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class ShowUserComponent {
   user!: User;
+  id!: number;
+
   imageSrc!: string;
   role!:string;
   roleNames!: string[] ;
   role1!:string;
-
   constructor(private userService: UserService, private route: ActivatedRoute,private authService: AuthService, private roleService:RoleService) {}
 
   ngOnInit() {
-    this.route.paramMap.subscribe(params => {
-      const id = Number(params.get('id'));
-    this.userService.getUserById(id).subscribe(user => {
-      this.user = user;
-      this.imageSrc = `data:image/jpeg;base64,${user.image}`;
-
-    });
-  });
+   
+      // Get user by id from route parameter
+      this.route.paramMap.subscribe(params => {
+        const id = Number(params.get('id'));
+        this.userService.getUserById(id).subscribe(user => {
+          this.user = user;
+          this.imageSrc = `data:image/jpeg;base64,${user.image}`;
+        });
+      });
+  
   this.role=this.authService.getRole();
   if(this.role=='ADMIN')
   this.roleService.getAllRoles().subscribe(

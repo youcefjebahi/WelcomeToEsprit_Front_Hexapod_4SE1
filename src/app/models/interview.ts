@@ -9,7 +9,7 @@ export class Interview {
     date?: Date;
     admissionCandidacy?: AdmissionCandidacy;
     offerCandidacy?: OfferCandidacy;
-    room?: Room;
+    room!: Room;
     complain?: Complain;
     user!: User;
 }
