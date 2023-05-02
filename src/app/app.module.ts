@@ -87,6 +87,9 @@ import { ListOfferCandidaciesComponent } from './components/offerCandidacy/list-
 import { DashadminComponent } from './components/user/userAdmin/dashadmin/dashadmin.component';
 import { AddRoleComponent } from './components/role/add-role/add-role.component';
 import { AddAdmissionCandidacyComponent } from './components/admissioncandidacy/add-admission-candidacy/add-admission-candidacy.component';
+import { GetresultComponent } from './components/test/getresult/getresult.component';
+import { ShowAdmissionCandidacyComponent } from './components/admissioncandidacy/show-admission-candidacy/show-admission-candidacy.component';
+import { AdmindashComponent } from './components/admissioncandidacy/admindash/admindash.component';
 
 
 
@@ -153,6 +156,12 @@ import { AddAdmissionCandidacyComponent } from './components/admissioncandidacy/
     ShowRoomComponent,
     ListRoomsComponent,
     UpdateRoomComponent,
+    AddAdmissionCandidacyComponent,
+    GetresultComponent,
+    ShowAdmissionCandidacyComponent,
+    AdmindashComponent,
+    
+    
     ListOfferCandidaciesComponent
     DashadminComponent,
     AddRoleComponent,

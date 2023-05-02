@@ -1,0 +1,88 @@
+<main id="main">
+     
+    <div id="about" class="about-area area-padding">
+        <div class="container">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <br>
+            <h2 class="center">Show AdmissionCandidacy</h2>
+            
+            <ul *ngIf="admissionCandidacy">
+                <div style="margin-right: 20px">
+                <li><strong>Reference:</strong>  {{admissionCandidacy.id}}</li>
+                <li><strong>Bac:</strong> {{admissionCandidacy. bac}}</li>
+                <li><strong>Moyen Of Bac:</strong> {{admissionCandidacy. bacMoy}}</li>
+                <li><strong>Year of Bac:</strong> {{admissionCandidacy. bacYear}}</li>
+                <li><strong>Etablishment Of Bac:</strong> {{admissionCandidacy. bacEstablishment}}</li>
+                <li><strong>Governate Of Bac:</strong> {{admissionCandidacy. bacGovernorate}}</li>
+                <li><strong>Moyen Of First Year of University :</strong> {{admissionCandidacy. moy1}}</li>
+                <li><strong>Moyen Of Second Year of University :</strong> {{admissionCandidacy. moy2}}</li>
+                <li><strong>Moyen Of First Year of University :</strong> {{admissionCandidacy. moy3}}</li>
+                <li><strong>Moyen Of Third Year of University :</strong> {{admissionCandidacy. moy4}}</li>
+                <li><strong>Level:</strong> {{admissionCandidacy. level}}</li>
+                <li><strong>Speciality :</strong> {{admissionCandidacy. speciality}}</li>
+
+                <li><strong>Documents:</strong></li>
+                <div style="display: flex">
+                    <div>
+                      <li><em>Diploma</em> 
+                        <div *ngIf="admissionCandidacy.docBacDiploma" class="media-container" (click)="toggleFullScreen($event)">
+                          <img [src]="'data:image/jpeg;base64,' + admissionCandidacy.docBacDiploma" alt="CV" class="media">
+                        </div>
+                      </li>
+                    </div>
+                    <div>
+                      <li><em>releveBac</em> 
+                        <div *ngIf="admissionCandidacy. docBacReleve" class="media-container" (click)="toggleFullScreen($event)">
+                          <img [src]="'data:image/jpeg;base64,' + admissionCandidacy. docBacReleve" alt="Diploma" class="media">
+                        </div>
+                      </li>
+                    </div>
+                    <div>
+                      <li><em>Releve1 </em> 
+                        <div *ngIf="admissionCandidacy. docReleve1" class="media-container" (click)="toggleFullScreen($event)">
+                          <img [src]="'data:image/jpeg;base64,' +admissionCandidacy. docReleve1" alt="Letter" class="media" >
+                        </div>
+                      </li>
+                    </div>
+                    <div>
+                        <li><em>Releve2</em> 
+                          <div *ngIf="admissionCandidacy. docReleve2" class="media-container" (click)="toggleFullScreen($event)">
+                            <img [src]="'data:image/jpeg;base64,' +admissionCandidacy. docReleve2" alt="Letter" class="media" >
+                          </div>
+                        </li>
+                      </div>
+                      <div>
+                        <li><em>Releve3</em> 
+                          <div *ngIf="admissionCandidacy. docReleve3" class="media-container" (click)="toggleFullScreen($event)">
+                            <img [src]="'data:image/jpeg;base64,' +admissionCandidacy. docReleve3" alt="Letter" class="media" >
+                          </div>
+                        </li>
+                      </div>
+                      <div>
+                        <li><em>Releve4</em> 
+                          <div *ngIf="admissionCandidacy. docReleve4" class="media-container" (click)="toggleFullScreen($event)">
+                            <img [src]="'data:image/jpeg;base64,' +admissionCandidacy. docReleve3" alt="Letter" class="media" >
+                          </div>
+                        </li>
+                      </div>
+                      <div>
+                        <li><em>Diploma</em> 
+                          <div *ngIf="admissionCandidacy. docDiploma" class="media-container" (click)="toggleFullScreen($event)">
+                            <img [src]="'data:image/jpeg;base64,' +admissionCandidacy. docDiploma" alt="Letter" class="media" >
+                          </div>
+                        </li>
+                     <div>
+                      <a [routerLink]="['/admin/updateAdmissionCandidacy']" style="margin: 0.2cm;" class="btn btn-primary">Update</a>
+                      <button class="btn btn-primary" [routerLink]="['/']" (click)="deleteAdmissionCandidacy(admissionCandidacy.id)">Delete</button> 
+                                  
+                     </div>
+                      </div>
+                     </div>
+                  </div>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </main>
+        
+              

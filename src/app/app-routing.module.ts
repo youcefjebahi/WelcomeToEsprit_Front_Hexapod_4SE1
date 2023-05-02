@@ -49,6 +49,8 @@ import { ListOfferCandidaciesComponent } from './components/offerCandidacy/list-
 import { DashadminComponent } from './components/user/userAdmin/dashadmin/dashadmin.component';
 import { AddRoleComponent } from './components/role/add-role/add-role.component';
 import { AddAdmissionCandidacyComponent } from './components/admissioncandidacy/add-admission-candidacy/add-admission-candidacy.component';
+import { ShowAdmissionCandidacyComponent } from './components/admissioncandidacy/show-admission-candidacy/show-admission-candidacy.component';
+import { AdmindashComponent } from './components/admissioncandidacy/admindash/admindash.component';
 
 const routes: Routes = [
   {
@@ -165,6 +167,10 @@ const routes: Routes = [
         component:ShowOfferCandidacyComponent
       },
       {
+        path:'candidacy',
+        component:AdmindashComponent
+      },
+      {
         path:'user/update/:id',
         component:UpdateUserComponent
       },
@@ -243,6 +249,10 @@ const routes: Routes = [
       {
         path:'offer/list',
         component:ListOffersComponent
+      },
+      {
+        path:'showAdmissionCandidacy/:id',
+        component:ShowAdmissionCandidacyComponent
       },
       {
         path:'login',

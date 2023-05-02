@@ -63,4 +63,24 @@ export class AdmissioncandidacyService {
 
     return this.http.post(this.url + '/createNewAdmissionCandidacy', formData, { headers: headers });
   }
+  getAdmissionCandidacyById(id: number) {
+    return this.http.get<AdmissionCandidacy>(this.url+`/getAdmissionCandidacyById/${id}`);
+  }
+
+  getAdmissionCandidacy(){
+    return this.http.get<AdmissionCandidacy[]>(this.url+'/getAdmissionCandidacy');
+  }
+ 
+
+  getSpecialityTestAverages(): Observable<Map<string, number>> {
+    return this.http.get<Map<string, number>>(`${this.url}/speciality-test-average`);
+  }
+
+  deleteAdmissionCandidacy(id:number){
+    return this.http.delete(this.url+`/delete-candidature/${id}`);
+
+  }
+
+
+
 }
