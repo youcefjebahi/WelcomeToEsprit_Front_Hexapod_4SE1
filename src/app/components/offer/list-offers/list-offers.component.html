@@ -7,7 +7,7 @@
                         <br>
                         <h2>Our recruitment offers</h2>
                     </div>
-                    <a *ngIf="role=='ADMIN'" href="/admin/add" class="btn btn-primary">Add new offer</a><br> <br>
+                    <a *ngIf="role=='ADMIN'" href="/admin/offer/add" class="btn btn-primary">Add new offer</a><br> <br>
                 </div>
             </div>
             <div class="row">
@@ -19,10 +19,12 @@
                                 <h5 class="card-title">{{offer.speciality}}</h5>
                                 <p class="card-text">{{offer.description}}</p>
                                 <div class="button-group">
-                                    <a *ngIf="role=='ADMIN'" [routerLink]="['/admin/show', offer.id]" class="btn btn-primary">Show</a>
-                                    <a *ngIf="role=='ADMIN'" [routerLink]="['/admin/update', offer.id]" class="btn btn-primary">Update</a>
+                                    <a *ngIf="role=='ADMIN'" [routerLink]="['/admin/offer/show', offer.id]" class="btn btn-primary">Show</a>
+                                    <a *ngIf="role=='ADMIN'" [routerLink]="['/admin/offer/update', offer.id]" class="btn btn-primary">Update</a>
                                     <button *ngIf="role=='ADMIN'" class="btn btn-primary" (click)="deleteOffer(offer.id)">Delete</button>
-                                  </div>
+                                    <a *ngIf="role=='PRE'" [routerLink]="['/offerCandidacy/add', offer.id]" class="btn btn-primary">َApply now</a>
+
+                                </div>
                             </div>
                         </div>
                     </div>

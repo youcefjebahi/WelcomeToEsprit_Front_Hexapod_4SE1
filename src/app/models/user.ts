@@ -6,7 +6,9 @@ export class User {
     firstName!:string;
     lastName!:string;
     gender!:string;
-    string!:string;
+    image!:string;
+    image0!:string;
+    address!:string;
     birthDate!:Date;
     phone!:string;
     mail!:string;
@@ -17,7 +19,7 @@ export class User {
     jury!:boolean;
     speaker!:boolean;
     bacSection!:string;
-    educationalLevel!:string;
+    educationLevel!:string;
     speciality!:string;
     classe!:string;
     creationDate!:Date;
