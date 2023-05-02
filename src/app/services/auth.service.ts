@@ -7,6 +7,9 @@ import { CookieService } from 'ngx-cookie-service';
   providedIn: 'root'
 })
 export class AuthService {
+  getUserId() {
+    throw new Error('Method not implemented.');
+  }
   constructor(private http: HttpClient, private cookieService: CookieService) { }
 
   login(mail: string, password: string): Observable<any> {

@@ -69,6 +69,9 @@ import { ShowRoomComponent } from './components/room/show-room/show-room.compone
 import { ListRoomsComponent } from './components/room/list-rooms/list-rooms.component';
 import { UpdateRoomComponent } from './components/room/update-room/update-room.component';
 import { AddAdmissionCandidacyComponent } from './components/admissioncandidacy/add-admission-candidacy/add-admission-candidacy.component';
+import { GetresultComponent } from './components/test/getresult/getresult.component';
+import { ShowAdmissionCandidacyComponent } from './components/admissioncandidacy/show-admission-candidacy/show-admission-candidacy.component';
+import { AdmindashComponent } from './components/admissioncandidacy/admindash/admindash.component';
 
 
 
@@ -120,7 +123,12 @@ import { AddAdmissionCandidacyComponent } from './components/admissioncandidacy/
     ShowRoomComponent,
     ListRoomsComponent,
     UpdateRoomComponent,
-    AddAdmissionCandidacyComponent
+    AddAdmissionCandidacyComponent,
+    GetresultComponent,
+    ShowAdmissionCandidacyComponent,
+    AdmindashComponent,
+    
+    
   ],
   imports: [
     BrowserModule,
