@@ -1,3 +1,4 @@
+import { Reaction } from "./reaction";
 import { User } from "./user";
 
 export class Comment {
@@ -8,5 +9,7 @@ export class Comment {
     comment_id!: number;
     post_id!: number;
     user!: User;
+    reactions!:Reaction[];
+
 
 }
