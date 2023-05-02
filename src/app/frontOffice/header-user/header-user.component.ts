@@ -29,7 +29,7 @@ export class HeaderUserComponent{
     this.authService.logout().subscribe(() => {
       this.cookieService.delete('token');
       this.cookieService.deleteAll();
-      window.location.href = 'http://localhost:4200/';
+      window.location.href = 'http://localhost:4200/login';
     });
   }
   

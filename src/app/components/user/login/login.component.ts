@@ -35,11 +35,11 @@ export class LoginComponent {
         localStorage.removeItem('tag')
         //----------------ligne---------------
         if(this.authService.getRole()=='ADMIN'){
-        window.location.href = `http://localhost:4200/admin/`;
+        window.location.href = `http://localhost:4200/admin/post`;
 
         }
         else{
-          window.location.href = `http://localhost:4200/`;
+          window.location.href = `http://localhost:4200/post`;
           }
 
       }

@@ -44,7 +44,6 @@ import { ToastrModule } from 'ngx-toastr';
 import { PostadmComponent } from './components/post/postadm/postadm.component';
 import { ChartsModule } from 'angular-bootstrap-md';
 import { NgChartsModule } from 'ng2-charts';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChartModule } from 'primeng/chart';
 import { MessagesModule } from 'primeng/messages';
 import { RatingModule } from 'primeng/rating';
@@ -160,12 +159,11 @@ import { AdmindashComponent } from './components/admissioncandidacy/admindash/ad
     GetresultComponent,
     ShowAdmissionCandidacyComponent,
     AdmindashComponent,
-    
-    
-    ListOfferCandidaciesComponent
-    DashadminComponent,
+    ListOfferCandidaciesComponent,
     AddRoleComponent,
-    AddAdmissionCandidacyComponent
+    AddAdmissionCandidacyComponent,
+    DashadminComponent,
+    AddRoleComponent
   ],
   imports: [
     BrowserModule,

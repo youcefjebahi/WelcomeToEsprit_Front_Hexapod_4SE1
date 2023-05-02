@@ -10,18 +10,15 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto" href="#">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="#services">Services</a></li>
-          <li><a [routerLink]="['/post']"class="nav-link scrollto" >Portfolio</a></li>
-          <li><a class="nav-link scrollto" href="#team">Team</a></li>
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-          <li><a class="nav-link scrollto" href="/faq">FAQ</a></li>
+          <li><a *ngIf="user" [routerLink]="['/post']"class="nav-link scrollto" >Home</a></li>
+          <li><a *ngIf="user" class="nav-link scrollto" href="/admissionCandidacy/add">Admission</a></li>
+          <li><a *ngIf="user" class="nav-link scrollto" href="/offer/list">Recruitment</a></li>
+          <li><a *ngIf="user" class="nav-link scrollto" href="/faq">FAQ</a></li>
 
 
           <li class="nav-item dropdown pe-3">
             
-            <a *ngIf="user" class="nav-link nav-profile d-flex align-items-center pe-0" href="#">
+            <a *ngIf="user" class="nav-link nav-profile d-flex align-items-center pe-0" href="/post">
               <img [src]="'data:image/jpeg;base64,' + user.image" alt="Profile" class="rounded-circle" style="max-height: 36px;">
               <span class="d-none d-md-block dropdown-toggle ps-2">{{user.firstName}}</span>
             </a><!-- End Profile Iamge Icon -->

@@ -91,10 +91,6 @@ const routes: Routes = [
         component:ShowOfferComponent
       },
       {
-        path:'login',
-        component:LoginComponent
-      },
-      {
         path:'getEvents',
         component:ListEventComponent
       },
@@ -197,19 +193,7 @@ const routes: Routes = [
       {
         path:'offerCandidacy/list/:id',
         component:ListOfferCandidaciesComponent
-      }
-    ]
-  },
-
-
-
-
-
-  
-  {
-    path:'',
-    component:AllTemplateUserComponent,
-    children:[
+      },
       {
         path:'ads',
         component:AdsManagementComponent,
@@ -226,7 +210,6 @@ const routes: Routes = [
         path:'ads/createad',
         component:CreateAdComponent
       },
-     
       {
         path:'faq',
         component:FAQComponent,
@@ -238,7 +221,31 @@ const routes: Routes = [
       {
         path:'faq/updatefaq/:id',
         component:CreateFAQComponent
+      }
+    ]
+  },
+
+
+
+
+
+  
+  {
+    path:'',
+    component:AllTemplateUserComponent,
+    children:[
+      {
+        path:'',
+        component:LoginComponent
       },
+     
+      {
+        path:'login',
+        component:LoginComponent
+      },
+     
+     
+      
       {
         path:'post',
         component:ListPostComponent
@@ -275,15 +282,8 @@ const routes: Routes = [
         path:'campaigns/show/:id',
         component:ShowcampaignComponent
       },
-    ]
-  },
-  {
-    path:'',
-    component:AllTemplateUserComponent,
-    children:[
+    
       {
-        path:'',
-        component:BodyUserComponent
         path:'user/add',
         component:AddUserComponent
       },
@@ -300,14 +300,12 @@ const routes: Routes = [
       path:'show/:id',
       component:ShowOfferComponent
       },
-      {
-        path:'login',
-        component:LoginComponent
-      },
+      
       {
         path:'faq',
         component:FAQComponentFront,
       }, 
+      {
         path:'offerCandidacy/show/:id',
         component:ShowOfferCandidacyComponent
       },
