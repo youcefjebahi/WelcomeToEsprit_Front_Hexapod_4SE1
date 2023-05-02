@@ -70,6 +70,7 @@ import { ListRoomsComponent } from './components/room/list-rooms/list-rooms.comp
 import { UpdateRoomComponent } from './components/room/update-room/update-room.component';
 import { DashadminComponent } from './components/user/userAdmin/dashadmin/dashadmin.component';
 import { AddRoleComponent } from './components/role/add-role/add-role.component';
+import { AddAdmissionCandidacyComponent } from './components/admissioncandidacy/add-admission-candidacy/add-admission-candidacy.component';
 
 
 
@@ -123,6 +124,7 @@ import { AddRoleComponent } from './components/role/add-role/add-role.component'
     UpdateRoomComponent,
     DashadminComponent,
     AddRoleComponent
+    AddAdmissionCandidacyComponent
   ],
   imports: [
     BrowserModule,

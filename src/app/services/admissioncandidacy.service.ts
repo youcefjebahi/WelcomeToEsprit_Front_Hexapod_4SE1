@@ -10,58 +10,52 @@ export class AdmissioncandidacyService {
   url="http://localhost:1111/welcometoesprit/api/admission";
 
   constructor(private http: HttpClient) { }
-  addNewAdmissionCandidacy(admissionCandidacy: any): Observable<any> {
+  addNewAdmissionCandidacy(
+    bac: boolean,
+    docBacDiploma: File,
+    bacMoy: number,
+    docBacReleve: File,
+    bacYear: string,
+    bacEstablishment: string,
+    bacGovernorate: string,
+    moy1: number,
+    docReleve1: File,
+    moy2: number,
+    docReleve2: File,
+    moy3: number,
+    docReleve3: File,
+    moy4: number,
+    docReleve4: File,
+    diploma: boolean,
+    docDiploma: File,
+    level: string,
+    speciality:string,
+    day:string,
+    hour:string
+
+    ): Observable<any> {
     const formData: FormData = new FormData();
-    formData.append('bac', admissionCandidacy.bac);
-    formData.append('bacYear', admissionCandidacy.bacYear);
-    formData.append('bacEstablishment', admissionCandidacy.bacEstablishment);
-    formData.append('bacGovernorate', admissionCandidacy.bacGovernorate);
-    if (admissionCandidacy.docBacDiploma) {
-      formData.append('docBacDiploma', admissionCandidacy.docBacDiploma);
-    }
-    if (admissionCandidacy.bacMoy) {
-      formData.append('bacMoy', admissionCandidacy.bacMoy.toString());
-    }
-    if (admissionCandidacy.docBacReleve) {
-      formData.append('docBacReleve', admissionCandidacy.docBacReleve);
-    }
-    if (admissionCandidacy.moy1) {
-      formData.append('moy1', admissionCandidacy.moy1.toString());
-    }
-    if (admissionCandidacy.docReleve1) {
-      formData.append('docReleve1', admissionCandidacy.docReleve1);
-    }
-    if (admissionCandidacy.moy2) {
-      formData.append('moy2', admissionCandidacy.moy2.toString());
-    }
-    if (admissionCandidacy.docReleve2) {
-      formData.append('docReleve2', admissionCandidacy.docReleve2);
-    }
-    if (admissionCandidacy.docCertificate) {
-      formData.append('docCertificate', admissionCandidacy.docCertificate);
-    }
-    if (admissionCandidacy.moy3) {
-      formData.append('moy3', admissionCandidacy.moy3.toString());
-    }
-    if (admissionCandidacy.docReleve3) {
-      formData.append('docReleve3', admissionCandidacy.docReleve3);
-    }
-    if (admissionCandidacy.moy4) {
-      formData.append('moy4', admissionCandidacy.moy4.toString());
-    }
-    if (admissionCandidacy.docReleve4) {
-      formData.append('docReleve4', admissionCandidacy.docReleve4);
-    }
-    if (admissionCandidacy.diploma) {
-      formData.append('diploma', admissionCandidacy.diploma);
-    }
-    if (admissionCandidacy.docDiploma) {
-      formData.append('docDiploma', admissionCandidacy.docDiploma);
-    }
-    formData.append('level', admissionCandidacy.level);
-    formData.append('speciality', admissionCandidacy.speciality);
-    formData.append('day', admissionCandidacy.day);
-    formData.append('hour', admissionCandidacy.hour);
+    formData.append('bac', bac.toString());
+    if (docBacDiploma) formData.append('docBacDiploma', docBacDiploma);
+    if (bacMoy) formData.append('bacMoy', bacMoy.toString());
+    if (docBacReleve) formData.append('docBacReleve', docBacReleve);
+    formData.append('bacYear', bacYear);
+    formData.append('bacEstablishment', bacEstablishment);
+    formData.append('bacGovernorate', bacGovernorate);
+    if (moy1)  formData.append('moy1', moy1.toString());
+    if (docReleve1) formData.append('docReleve1', docReleve1);
+    if (moy2) formData.append('moy2', moy2.toString());
+    if (docReleve2) formData.append('docReleve2', docReleve2);
+    if (moy3)  formData.append('moy3', moy3.toString());
+    if (docReleve3) formData.append('docReleve3', docReleve3);
+    if (moy4) formData.append('moy4', moy4.toString());
+    if (docReleve4) formData.append('docReleve4', docReleve4);
+    if (diploma) formData.append('diploma', diploma.toString());
+    if (docDiploma) formData.append('docDiploma', docDiploma);
+    formData.append('level', level);
+    formData.append('speciality', speciality);
+    formData.append('day', day);
+    formData.append('hour', hour);
 
     const headers = new HttpHeaders();
     headers.append('Content-Type', 'multipart/form-data');
