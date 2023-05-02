@@ -4,12 +4,15 @@ import { Observable } from 'rxjs';
 import { Comment } from 'src/app/models/comment';
 import { Post } from 'src/app/models/post';
 import { Rating } from 'src/app/models/rating';
+import { Reaction } from 'src/app/models/reaction';
+import { TypeReaction } from 'src/app/models/typeReaction';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
   posts: Post[] = [];
+  
   constructor(private http: HttpClient) { }
   url="http://localhost:1111/welcometoesprit/api";
 
@@ -27,10 +30,9 @@ export class PostService {
     return this.http.get<Comment[]>(`${this.url}/comment/posts/${postId}/comments`);
   }
   addComment(postId: number, text: string): Observable<Comment> {
-    const content = new HttpParams()
-    .set('content', text)
     
-    return this.http.post<Comment>(`${this.url}/comment/posts/${postId}/comments/create`, content);
+    const options = { withCredentials:true };
+    return this.http.post<Comment>(`${this.url}/comment/posts/${postId}/comments/create?content=${text}`,options);
   }
   
 
@@ -44,8 +46,8 @@ addRating(postId: number,value: number):Observable<Rating>{
   return this.http.post<Rating>(url, null);}
 
   
-getRating(postId: number ,newRating: any)  {
-  return this.http.get<Rating[]>(`${this.url}/rating/posts/${postId}/ratings`,newRating);
+getRating(postId: number)  {
+  return this.http.get<Rating[]>(`${this.url}/rating/posts/${postId}/ratings`);
 }
 
 postPredict(){
@@ -59,11 +61,18 @@ topRated(){
 }
 
 
+urllike="http://localhost:1111/welcometoesprit/api/reaction/comments/";
+likeComment(commentId: number,type: TypeReaction){
+  const options = { withCredentials:true };
+return this.http.post<Reaction>(this.urllike+`${commentId}`+'/reactions/create?type='+`${type}`,options);
+}
 
 
 
-
-
+recherchePost(content: string, filter: string): Observable<Post[]> {
+  const url = `${this.url}/post/recherchePost?Text=${content}&Filter=${filter}`;
+  return this.http.get<Post[]>(url);
+}
 
 
 

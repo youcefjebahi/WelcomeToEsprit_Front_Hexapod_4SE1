@@ -9,18 +9,26 @@
         <div class="col-md-9">
             <div class="feed p-2">
                 
-                <div class="d-flex flex-row justify-content-between align-items-center p-2 bg-white border">
+                <div class="d-flex flex-row justify-content-between align-items-center p-2 bg-white border" style=" border-radius: 18px;">
                      
 
     <div class="form-group flex-grow-1 mr-1">
-        <form (ngSubmit)="onSubmit()" class="d-flex"> 
-      <input type="text" class="form-control" id="text" [(ngModel)]="newPost.text" name="text" required placeholder="What's on your mind">
-      
-     
-      <div class="invalid-feedback">Please enter some text for the post. </div>
-      <button type="submit" class="btn btn-primary ml-2">Add</button>
-    </form>
-    <p-messages [(value)]="messages" [enableService]="false" [closable]="false"></p-messages>
+        <div class="tweetBox">
+            <form (ngSubmit)="onSubmit()" >
+              <div class="tweetbox__input">
+                <img  src="https://i.pinimg.com/originals/a6/58/32/a65832155622ac173337874f02b218fb.png" alt="">
+                <input type="text" id="text" [(ngModel)]="newPost.text" name="text" required placeholder="What's on your mind">
+                
+
+            </div>
+              <button type="submit" class="tweetBox__tweetButton">Add</button>
+            </form>
+            <p-messages [(value)]="messages" [enableService]="false" [closable]="false"></p-messages>
+          </div>
+        <div class="micro">
+            <button class="voice-button" class="voice-button"(click)="startRecognition()">  <i class="fas fa-microphone"></i></button>    
+               <marquee behavior="" direction="" style="font-family: 'Pacifico', cursive; font-size: 1rem; color: #4a4c4d;">  Partagez vos pensées en parlant : cliquez sur le bouton pour démarrer la reconnaissance vocale !</marquee>
+        </div>
     </div> 
 
 
@@ -31,3 +39,4 @@
 
 </div>
 
+</div>
