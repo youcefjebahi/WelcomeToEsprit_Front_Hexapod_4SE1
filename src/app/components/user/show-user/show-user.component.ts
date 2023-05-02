@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { EmailValidator, NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Role } from 'src/app/models/role';
 import { User } from 'src/app/models/user';

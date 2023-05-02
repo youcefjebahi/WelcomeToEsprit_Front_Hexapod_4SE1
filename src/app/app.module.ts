@@ -68,6 +68,8 @@ import { AddRoomComponent } from './components/room/add-room/add-room.component'
 import { ShowRoomComponent } from './components/room/show-room/show-room.component';
 import { ListRoomsComponent } from './components/room/list-rooms/list-rooms.component';
 import { UpdateRoomComponent } from './components/room/update-room/update-room.component';
+import { DashadminComponent } from './components/user/userAdmin/dashadmin/dashadmin.component';
+import { AddRoleComponent } from './components/role/add-role/add-role.component';
 
 
 
@@ -118,7 +120,9 @@ import { UpdateRoomComponent } from './components/room/update-room/update-room.c
     AddRoomComponent,
     ShowRoomComponent,
     ListRoomsComponent,
-    UpdateRoomComponent
+    UpdateRoomComponent,
+    DashadminComponent,
+    AddRoleComponent
   ],
   imports: [
     BrowserModule,

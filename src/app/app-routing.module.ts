@@ -33,6 +33,8 @@ import { ShowUserComponent } from './components/user/show-user/show-user.compone
 import { ShowInvitationByEventComponent } from './components/invitation/show-invitation-by-event/show-invitation-by-event.component';
 import { ShowRoomComponent } from './components/room/show-room/show-room.component';
 import { AddRoomComponent } from './components/room/add-room/add-room.component';
+import { DashadminComponent } from './components/user/userAdmin/dashadmin/dashadmin.component';
+import { AddRoleComponent } from './components/role/add-role/add-role.component';
 
 const routes: Routes = [
   {
@@ -42,6 +44,14 @@ const routes: Routes = [
       {
         path:'',
         component:BodyAdminComponent
+      },
+      {
+        path:'user',
+        component:DashadminComponent
+      },
+      {
+        path:'addRole',
+        component:AddRoleComponent
       },
       
       {
