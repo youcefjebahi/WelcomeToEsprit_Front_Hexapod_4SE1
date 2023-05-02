@@ -21,6 +21,9 @@ export class LoginComponent {
       (response) => {
         const token = response.body.token;
         this.authService.setToken(token);
+        //----------------ligne---------------
+        localStorage.removeItem('tag')
+        //----------------ligne---------------
         if(this.authService.getRole()=='ADMIN'){
         window.location.href = 'http://localhost:4200/admin';
         }
