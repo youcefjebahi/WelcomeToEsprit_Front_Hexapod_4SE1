@@ -22,6 +22,9 @@ import { UpdateUserComponent } from './components/user/update-user/update-user.c
 import { ListRoleComponent } from './components/role/list-role/list-role.component';
 import { ShowUserComponent } from './components/user/show-user/show-user.component';
 import { ShowInvitationByEventComponent } from './components/invitation/show-invitation-by-event/show-invitation-by-event.component';
+import { AddAchievementComponent } from './components/achievement/add-achievement/add-achievement.component';
+import { ListAchievementComponent } from './components/achievement/list-achievement/list-achievement.component';
+import { ShowAchievementComponent } from './components/achievement/show-achievement/show-achievement.component';
 
 const routes: Routes = [
   {
@@ -73,6 +76,18 @@ const routes: Routes = [
         path:'showInvitations/:id',
         component:ShowInvitationByEventComponent
         
+      },
+      {
+        path:'addAchievement/:id',
+        component:AddAchievementComponent
+      },
+      {
+        path:'getAchievements',
+        component:ListAchievementComponent
+      },
+      {
+        path:'showAchievement/:id',
+        component:ShowAchievementComponent
       },
   
       {
