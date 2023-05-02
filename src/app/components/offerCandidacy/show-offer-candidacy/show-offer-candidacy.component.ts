@@ -1,4 +1,4 @@
-import { Component, NgModule } from '@angular/core';
+import { Component, Input, NgModule } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { OfferCandidacy } from 'src/app/models/offer-candidacy';
 import { OfferCandidacyService } from 'src/app/services/offer-candidacy.service';
@@ -9,6 +9,7 @@ import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/models/user';
 import { Interview } from 'src/app/models/interview';
 import { InterviewService } from 'src/app/services/interview.service';
+import { NgForm } from '@angular/forms';
 
 
 
@@ -25,15 +26,17 @@ export class ShowOfferCandidacyComponent {
   mail=this.authService.getSubject();
   user!:User;
   interview!:Interview;
+  score!:number;
+  id!:number;
 
   ngOnInit() {  
     this.route.paramMap.subscribe(params => {
       const id = Number(params.get('id'));
+      this.id=id;
       this.getOfferCandidacyById(id);
      this.interviewService.getInterviewByOfferCandidacyId(id).subscribe(
       data => {
         this.interview = data;
-        console.log(data.user.id);
     });
 
     });
@@ -41,13 +44,16 @@ export class ShowOfferCandidacyComponent {
     this.userService.getUserbyMail(this.mail)
     .subscribe((user) => {
       this.user = user;
-      console.log(user.id)
     });
+
   }
   getOfferCandidacyById(id: number) {
     this.offerCandidacyService.getOfferCandidacyById(id).subscribe(
       data => {
         this.offerCandidacy = data;
+        if(data.score)
+        this.score=data.score;
+
     });
   }
   toggleFullScreen(event: MouseEvent) {
@@ -59,7 +65,25 @@ export class ShowOfferCandidacyComponent {
       mediaContainer.classList.add('fullscreen');
     }
   }
-
   
+  updateOfferCandidacyScore(F:NgForm){
+    if(F.controls['score'])
+    this.score = F.controls['score'].value;
+    this.offerCandidacyService.updateOfferCandidacyScore(this.id, this.score).subscribe(() => {
+      location.reload();
+    });
+  }
+  getStatusColor(status: string): string {
+    switch (status) {
+      case 'being processed':
+        return 'blue';
+      case 'accepted':
+        return 'green';
+      case 'rejected':
+        return 'red';
+      default:
+        return 'yellow'; // Set default color if none of the cases match
+    }
+  }
   
 }

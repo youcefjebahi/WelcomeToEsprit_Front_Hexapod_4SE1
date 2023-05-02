@@ -2,16 +2,39 @@
      
     <div id="about" class="about-area area-padding">
         <div class="container">
-          <div class="col-md-12 col-sm-12 col-xs-12">
+          <div *ngIf="offerCandidacy" class="col-md-12 col-sm-12 col-xs-12">
             <br>
-            <h2 class="center">Show OfferCandidacy</h2>
+            <h4 class="center">OfferCandidacy information:</h4>
             
-            <ul *ngIf="offerCandidacy">
+            <ul>
+              <div style="display: flex">
               <div style="margin-right: 20px">
-              <li><strong>Reference:</strong>  {{offerCandidacy.id}}</li>
+              <li><strong>Reference:</strong> {{offerCandidacy.id}}</li>
+              <li><strong>Candidate:</strong> {{offerCandidacy.user.firstName}} {{offerCandidacy.user.lastName}}</li>
               <li><strong>Establishment:</strong> {{offerCandidacy.establishment}}</li>
               <li><strong>Documents:</strong></li>
               </div>
+
+              <div *ngIf="user && user?.id==interview?.user?.id && offerCandidacy.status!='accepted' && offerCandidacy.status!='rejected'" class="mb-3" style="margin-left: 50px;">
+                <form #s="ngForm" (ngSubmit)="updateOfferCandidacyScore(s)">
+                  <div class="row g-3 align-items-center">
+                    <div class="col-auto">
+                      <input class="form-control" name="r" [(ngModel)]="score" required placeholder="score">
+                    </div>
+                    <div class="col-auto">
+                      <button type="submit" class="btn btn-outline-warning btn-sm" [disabled]="s.invalid">confirm</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div style="display: flex; align-items: center;">
+                <div *ngIf="offerCandidacy.status" [style.background-color]="getStatusColor(offerCandidacy.status)"
+     style="margin-left: 20px; padding-bottom: 0px; border-radius: 5px; color: white !important;">
+  <p>{{ offerCandidacy.status }}</p>
+</div>
+
+              </div>
+            </div>
               <div style="display: flex">
                 <div>
                   <li><em>CV</em> 
@@ -36,13 +59,29 @@
                 </div>
               </div>
             </ul>
+          </div><br>
+
+        
+
+          <div *ngIf=" user && user?.id==offerCandidacy?.user?.id || (user?.id==interview?.user?.id && role!='ADMIN')">
+          <button class="btn btn-outline-info" routerLink="/interview/show/{{interview.id}}">show interview details</button>
           </div>
+          <div *ngIf="user && role=='ADMIN'">
+            <button class="btn btn-outline-info" routerLink="/admin/interview/show/{{interview.id}}">show interview details</button>
+            </div>
+            
+            <br>
+            <div *ngIf="user && user?.id==interview?.user?.id && role!='ADMIN'">
+              <button class="btn btn-outline-info" routerLink="/user/show/{{offerCandidacy.user.id}}">show candidate profil</button>
+              </div>
+              <div *ngIf="role=='ADMIN'">
+                <button class="btn btn-outline-info" routerLink="/admin/user/show/{{offerCandidacy.user.id}}">show candidate profil</button>
+                </div>
         </div>
       </div>
     </main>
-    <div *ngIf="user && interview && interview.user.id==user.id || role=='ADMIN'">
-      <app-show-user *ngIf="offerCandidacy" [id]="offerCandidacy.user.id"></app-show-user>
-    </div>
+    
+
 
     <!--
       <div class="media-container" (click)="toggleFullScreen($event)">

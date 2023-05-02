@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AllTemplateAdminComponent } from './backOffice/all-template-admin/all-template-admin.component';
@@ -20,6 +20,19 @@ import { ShowOfferComponent } from './components/offer/show-offer/show-offer.com
 import { ListOffersComponent } from './components/offer/list-offers/list-offers.component';
 import { LoginComponent } from './components/user/login/login.component';
 import { TokenInterceptor } from './services/tokenInterceptor';
+import { AdsComponent } from './components/ads/ads.component';
+import { AdsBannerComponent } from './components/ads-banner/ads-banner.component';
+import { AdsManagementComponent } from './backOffice/ads-management/ads-management.component';
+import { CreateAdComponent } from './backOffice/create-ad/create-ad.component';
+import { FAQComponentFront } from './frontOffice/faq/faq.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { CreateFAQComponent } from './backOffice/create-faq/create-faq.component';
+import { CampainsComponent } from './backOffice/campains/campains.component';
+import { CreateCampainComponent } from './backOffice/create-campain/create-campain.component';
+import { CommonModule } from '@angular/common';
+import { FAQComponent } from './backOffice/faq/faq.component';
+import { ShowadComponent } from './backOffice/showad/showad.component';
+import { ShowcampaignComponent } from './backOffice/showcampaign/showcampaign.component';
 import { PostComponent } from './components/post/post.component';
 import { ListPostComponent } from './components/post/list-post/list-post.component';
 import { AddPostComponent } from './components/post/add-post/add-post.component';
@@ -28,7 +41,6 @@ import { PostRatingComponent } from './components/post/post-rating/post-rating.c
 import { StarRatingModule } from 'angular-star-rating';
 import { NgxStarsModule } from 'ngx-stars';
 import { ToastrModule } from 'ngx-toastr';
-//import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PostadmComponent } from './components/post/postadm/postadm.component';
 import { ChartsModule } from 'angular-bootstrap-md';
 import { NgChartsModule } from 'ng2-charts';
@@ -64,10 +76,16 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ListRoleComponent } from './components/role/list-role/list-role.component';
 import { ShowUserComponent } from './components/user/show-user/show-user.component';
 import { ShowInvitationByEventComponent } from './components/invitation/show-invitation-by-event/show-invitation-by-event.component';
+import { AddAchievementComponent } from './components/achievement/add-achievement/add-achievement.component';
+import { ListAchievementComponent } from './components/achievement/list-achievement/list-achievement.component';
+import { ShowAchievementComponent } from './components/achievement/show-achievement/show-achievement.component';
 import { AddRoomComponent } from './components/room/add-room/add-room.component';
 import { ShowRoomComponent } from './components/room/show-room/show-room.component';
 import { ListRoomsComponent } from './components/room/list-rooms/list-rooms.component';
 import { UpdateRoomComponent } from './components/room/update-room/update-room.component';
+import { ListOfferCandidaciesComponent } from './components/offerCandidacy/list-offer-candidacies/list-offer-candidacies.component';
+import { DashadminComponent } from './components/user/userAdmin/dashadmin/dashadmin.component';
+import { AddRoleComponent } from './components/role/add-role/add-role.component';
 import { AddAdmissionCandidacyComponent } from './components/admissioncandidacy/add-admission-candidacy/add-admission-candidacy.component';
 import { GetresultComponent } from './components/test/getresult/getresult.component';
 import { ShowAdmissionCandidacyComponent } from './components/admissioncandidacy/show-admission-candidacy/show-admission-candidacy.component';
@@ -92,6 +110,18 @@ import { AdmindashComponent } from './components/admissioncandidacy/admindash/ad
     ShowOfferComponent,
     ListOffersComponent,
     LoginComponent,
+    AdsComponent,
+    AdsBannerComponent,
+    AdsManagementComponent,
+    CreateAdComponent,
+    FAQComponentFront,
+    CreateFAQComponent,
+    CampainsComponent,
+    CreateCampainComponent,
+    FAQComponent,
+    ShowadComponent,
+    ShowcampaignComponent,
+  
     PostComponent,
     ListPostComponent,
     AddPostComponent,
@@ -119,6 +149,9 @@ import { AdmindashComponent } from './components/admissioncandidacy/admindash/ad
     ListRoleComponent,
     ShowUserComponent,
     ShowInvitationByEventComponent,
+    AddAchievementComponent,
+    ListAchievementComponent,
+    ShowAchievementComponent,  
     AddRoomComponent,
     ShowRoomComponent,
     ListRoomsComponent,
@@ -129,12 +162,19 @@ import { AdmindashComponent } from './components/admissioncandidacy/admindash/ad
     AdmindashComponent,
     
     
+    ListOfferCandidaciesComponent
+    DashadminComponent,
+    AddRoleComponent,
+    AddAdmissionCandidacyComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    BrowserAnimationsModule,
+    MatExpansionModule,
+    
     StarRatingModule.forRoot(),
     NgxStarsModule,
     BrowserAnimationsModule,

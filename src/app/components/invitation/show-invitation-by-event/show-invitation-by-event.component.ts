@@ -15,6 +15,7 @@ export class ShowInvitationByEventComponent {
 
   invitations!:Invitation[];
   name!:string;
+  
   constructor(private router:Router,private invitationsService:InvitationsService,private authService: AuthService,private sanitizer: DomSanitizer,private route: ActivatedRoute,private eventService:EventService){}
   role=this.authService.getRole();
   ngOnInit(): void {
@@ -32,7 +33,9 @@ export class ShowInvitationByEventComponent {
     this.invitationsService.onPresenceChanged(id, present).subscribe(
       () => {
         console.log('Invitation mise à jour avec succès :');
+     
       }
+      
     );
   }
 
@@ -41,6 +44,6 @@ export class ShowInvitationByEventComponent {
       data =>  this.invitations=data 
       );
   }
-
+  
 
 }

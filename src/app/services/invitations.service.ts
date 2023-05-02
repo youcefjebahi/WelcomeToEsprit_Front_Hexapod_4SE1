@@ -10,7 +10,8 @@ import { Invitation } from '../models/invitation';
   providedIn: 'root'
 })
 export class InvitationsService {
-
+  private apiKey = 'your-jotform-api-key';
+  private apiUrl = 'https://api.jotform.com';
   constructor(private http: HttpClient) { }
   url="http://localhost:1111/welcometoesprit/api/invitation";
   getSpeakers(){
@@ -42,6 +43,10 @@ export class InvitationsService {
     getInvitationsByEvent(name:string): Observable<Invitation[]> {
       const url = `${this.url}/getInvitations?name=${name}`;
       return this.http.get<Invitation[]>(url);
+    }
+    getForms() {
+      const url = `${this.apiUrl}/user/forms?apiKey=${this.apiKey}`;
+      return this.http.get(url);
     }
   }
 

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { EmailValidator, NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Role } from 'src/app/models/role';
 import { User } from 'src/app/models/user';
@@ -13,8 +13,8 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./show-user.component.css']
 })
 export class ShowUserComponent {
-  @Input() user!: User;
-  @Input() id!: number;
+  user!: User;
+  id!: number;
 
   imageSrc!: string;
   role!:string;
@@ -23,13 +23,7 @@ export class ShowUserComponent {
   constructor(private userService: UserService, private route: ActivatedRoute,private authService: AuthService, private roleService:RoleService) {}
 
   ngOnInit() {
-    if (this.id) {
-      // Get user by id from the input
-      this.userService.getUserById(this.id).subscribe(user => {
-        this.user = user;
-        this.imageSrc = `data:image/jpeg;base64,${user.image}`;
-      });
-    } else {
+   
       // Get user by id from route parameter
       this.route.paramMap.subscribe(params => {
         const id = Number(params.get('id'));
@@ -38,7 +32,7 @@ export class ShowUserComponent {
           this.imageSrc = `data:image/jpeg;base64,${user.image}`;
         });
       });
-    }
+  
   this.role=this.authService.getRole();
   if(this.role=='ADMIN')
   this.roleService.getAllRoles().subscribe(
