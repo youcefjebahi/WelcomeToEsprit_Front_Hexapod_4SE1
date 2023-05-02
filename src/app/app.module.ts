@@ -76,6 +76,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ListRoleComponent } from './components/role/list-role/list-role.component';
 import { ShowUserComponent } from './components/user/show-user/show-user.component';
 import { ShowInvitationByEventComponent } from './components/invitation/show-invitation-by-event/show-invitation-by-event.component';
+import { AddAchievementComponent } from './components/achievement/add-achievement/add-achievement.component';
+import { ListAchievementComponent } from './components/achievement/list-achievement/list-achievement.component';
+import { ShowAchievementComponent } from './components/achievement/show-achievement/show-achievement.component';
 import { AddRoomComponent } from './components/room/add-room/add-room.component';
 import { ShowRoomComponent } from './components/room/show-room/show-room.component';
 import { ListRoomsComponent } from './components/room/list-rooms/list-rooms.component';
@@ -143,13 +146,16 @@ import { AddAdmissionCandidacyComponent } from './components/admissioncandidacy/
     ListRoleComponent,
     ShowUserComponent,
     ShowInvitationByEventComponent,
+    AddAchievementComponent,
+    ListAchievementComponent,
+    ShowAchievementComponent,  
     AddRoomComponent,
     ShowRoomComponent,
     ListRoomsComponent,
     UpdateRoomComponent,
     ListOfferCandidaciesComponent
     DashadminComponent,
-    AddRoleComponent
+    AddRoleComponent,
     AddAdmissionCandidacyComponent
   ],
   imports: [

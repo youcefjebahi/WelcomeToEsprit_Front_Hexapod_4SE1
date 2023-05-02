@@ -40,6 +40,9 @@ import { ListtestComponent } from './components/test/listtest/listtest.component
 import { ListRoleComponent } from './components/role/list-role/list-role.component';
 import { ShowUserComponent } from './components/user/show-user/show-user.component';
 import { ShowInvitationByEventComponent } from './components/invitation/show-invitation-by-event/show-invitation-by-event.component';
+import { AddAchievementComponent } from './components/achievement/add-achievement/add-achievement.component';
+import { ListAchievementComponent } from './components/achievement/list-achievement/list-achievement.component';
+import { ShowAchievementComponent } from './components/achievement/show-achievement/show-achievement.component';
 import { ShowRoomComponent } from './components/room/show-room/show-room.component';
 import { AddRoomComponent } from './components/room/add-room/add-room.component';
 import { ListOfferCandidaciesComponent } from './components/offerCandidacy/list-offer-candidacies/list-offer-candidacies.component';
@@ -143,6 +146,18 @@ const routes: Routes = [
         path:'showInvitations/:id',
         component:ShowInvitationByEventComponent
         
+      },
+      {
+        path:'addAchievement/:id',
+        component:AddAchievementComponent
+      },
+      {
+        path:'getAchievements',
+        component:ListAchievementComponent
+      },
+      {
+        path:'showAchievement/:id',
+        component:ShowAchievementComponent
       },
   
       {
