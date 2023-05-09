@@ -18,6 +18,8 @@ export class AdsComponent {
 
   ngOnInit( ) { 
     this.getAds();
+    this.obs$.subscribe((b)=>{
+    })
   } 
 
   Ads: any;
@@ -37,10 +39,8 @@ export class AdsComponent {
       })
       if(!localStorage.getItem('tag') )
       this.adService.addVue(this.Ads[this.item].id).subscribe(res=>{
-        console.log(res)
       })
       this.obs$.subscribe((d)=>{
-        console.log('ameeeeeeni' , this.item)
         
     
         if(this.item == this.Ads.length-1 ){
@@ -51,7 +51,6 @@ export class AdsComponent {
             if(!localStorage.getItem('tag') ){
               this.adService.addVue(this.Ads[this.item].id).subscribe(res=>{
                 this.lengthInt = this.lengthInt +1
-                console.log(res)
               })
             }
           }else{
@@ -61,7 +60,6 @@ export class AdsComponent {
         }
       })
       
-      console.log('hahaha' ,this.Ads)
       
       
     },

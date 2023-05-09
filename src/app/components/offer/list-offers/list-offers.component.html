@@ -22,8 +22,7 @@
                                     <a *ngIf="role=='ADMIN'" [routerLink]="['/admin/offer/show', offer.id]" class="btn btn-primary">Show</a>
                                     <a *ngIf="role=='ADMIN'" [routerLink]="['/admin/offer/update', offer.id]" class="btn btn-primary">Update</a>
                                     <button *ngIf="role=='ADMIN'" class="btn btn-primary" (click)="deleteOffer(offer.id)">Delete</button>
-                                    <a *ngIf="role=='PRE'" [routerLink]="['/offerCandidacy/add', offer.id]" class="btn btn-primary">َApply now</a>
-
+                                    <a *ngIf="role=='PRE'" (click)="apply(offer.id)" class="btn btn-primary">َApply now</a>
                                 </div>
                             </div>
                         </div>

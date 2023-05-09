@@ -7,6 +7,7 @@ import {AdmissionCandidacy  } from 'src/app/models/admission-candidacy';
 import { Interview } from 'src/app/models/interview';
 import { InterviewService } from 'src/app/services/interview.service';
 import { ActivatedRoute } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-show-admission-candidacy',
@@ -20,18 +21,24 @@ export class ShowAdmissionCandidacyComponent {
   mail=this.authService.getSubject();
   user!:User;
   interview!:Interview;
+  id!: number;
   admissioncandidacies!:AdmissionCandidacy[];
+  score!:number;
+
   ngOnInit() {  
     this.route.paramMap.subscribe(params => {
       const id = Number(params.get('id'));
+      this.id=id;
       this.getAdmissionCandidacyById(id);
-    
+      this.interviewService.getInterviewByAdmissionCandidacyId(id).subscribe(
+        data => {
+          this.interview = data;
+      });
   });
   if (this.mail)
     this.userService.getUserbyMail(this.mail)
     .subscribe((user) => {
       this.user = user;
-      console.log(user.id)
     });
   }
   getAdmissionCandidacy(){
@@ -48,7 +55,7 @@ export class ShowAdmissionCandidacyComponent {
   deleteAdmissionCandidacy(id:number){
     this.admissioncandidacyService.deleteAdmissionCandidacy(id).subscribe(
       ()=> {
-        this.getAdmissionCandidacy();
+        window.location.href = `http://localhost:4200/post`;
         alert('Deleted!');
         
       }
@@ -63,5 +70,26 @@ export class ShowAdmissionCandidacyComponent {
       mediaContainer.classList.add('fullscreen');
     }
   }
+
+  updateAdmissionCandidacyScore(F:NgForm){
+    if(F.controls['score'])
+    this.score = F.controls['score'].value;
+    this.admissioncandidacyService.updateAdmissionCandidacyScore(this.id, this.score).subscribe(() => {
+      location.reload();
+    });
+  }
+  getStatusColor(status: string): string {
+    switch (status) {
+      case 'being processed':
+        return 'blue';
+      case 'accepted':
+        return 'green';
+      case 'rejected':
+        return 'red';
+      default:
+        return 'yellow'; // Set default color if none of the cases match
+    }
+  }
+  
 }
 

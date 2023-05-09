@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Event } from 'src/app/models/event';
 import { EventService } from 'src/app/services/event.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { AchievementService } from 'src/app/services/achievement.service';
+import { Achievement } from 'src/app/models/achievement';
 
 
 @Component({
@@ -11,16 +13,21 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./show-event.component.css']
 })
 export class ShowEventComponent {
-  constructor(private eventService:EventService,private route: ActivatedRoute,private sanitizer: DomSanitizer){}
+  constructor(private eventService:EventService,private route: ActivatedRoute,private sanitizer: DomSanitizer, private achievementService:AchievementService){}
   event=new Event();
  
   showImage: boolean = false; // add this line
   showVideo: boolean = false;
   showPdf: boolean = false;
+  achievements!:Achievement[];
   ngOnInit() {  
     this.route.paramMap.subscribe(params => {
       const id = Number(params.get('id'));
       this.getEventById(id);
+      this.achievementService.findAchievemntsByEventId(id).subscribe(data => {
+        this.achievements = data;
+      });;
+
     });
   }
   

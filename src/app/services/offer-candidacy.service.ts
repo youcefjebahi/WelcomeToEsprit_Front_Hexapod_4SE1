@@ -53,5 +53,19 @@ export class OfferCandidacyService {
     return this.http.put(url, null);
   }
   
+  getOfferCandidacyStatisticsByDate(id: number): Observable<Map<Date, number>> {
+    const url = this.url + `/getOfferCandidacyStatisticsByDate/admin?id=${id}`;
+    return this.http.get<Map<Date, number>>(url);
+}
+
+getOfferCandidaciesByIdCandidate(id:number){
+  return this.http.get<OfferCandidacy[]>(this.url+`/getOfferCandidaciesByIdCandidate/${id}`);
+}
+
+getOfferCandidaciesByOfferIdAndUserId(offerId:number,userId:number){
+
+  return this.http.get<OfferCandidacy>(this.url+`/getOfferCandidaciesByOfferIdAndUserId/${offerId}/${userId}`);
+
+}
 
 }

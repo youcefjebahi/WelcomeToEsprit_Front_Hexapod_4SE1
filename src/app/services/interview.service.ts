@@ -18,7 +18,14 @@ export class InterviewService {
   getInterviewByOfferCandidacyId(id:number){
     return this.http.get<Interview>(this.url+`/getInterviewByOfferCandidacyId/${id}`);
   }
+  getInterviewByAdmissionCandidacyId(id:number){
+    return this.http.get<Interview>(this.url+`/getInterviewByAdmissionCandidacyId/${id}`);
+  }
   getInterviewById(id:number){
     return this.http.get<Interview>(this.url+`/getInterviewById/${id}`);
   }
+  getInterviewsByUserId(id:number){
+    return this.http.get<Interview[]>(this.url+`/getInterviewsByUserId/${id}`);
+  }
+
 }

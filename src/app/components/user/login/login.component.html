@@ -2,7 +2,7 @@
 
 <div id="about" class="about-area area-padding">
     <div class="container">
-        <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="col-md-10 col-sm-10 col-xs-10" style="padding-left: 180px;">
             <br>
             <h2 class="center">Log in</h2>
             <form (ngSubmit)="login()" #loginForm="ngForm">
@@ -17,7 +17,8 @@
                 <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
               </form>
               
-            
+              <app-ads-banner></app-ads-banner>
+
               
         </div>
     </div>

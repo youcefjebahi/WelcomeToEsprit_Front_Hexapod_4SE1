@@ -9,17 +9,33 @@
       <li>{{interview.date  | date:'EEEE dd-MM-yyyy \'at\' HH:mm'}}</li>
       <li><br>
       <div *ngIf="(user.id==interview.user.id && role!='ADMIN')">
-        <button class="btn btn-outline-info" routerLink="/offerCandidacy/show/{{interview.offerCandidacy?.id}}">show candidacy details</button>
+        <div *ngIf="interview.offerCandidacy?.id">
+          <button class="btn btn-outline-info" routerLink="/offerCandidacy/show/{{interview.offerCandidacy?.id}}">show candidacy details</button>
+        </div>
+        <div *ngIf="interview.admissionCandidacy?.id">
+          <button class="btn btn-outline-info" routerLink="/showAdmissionCandidacy/{{interview.admissionCandidacy?.id}}">show candidacy details</button>
+        </div>
         </div>
         <div *ngIf="user.id==interview?.offerCandidacy?.user?.id ">
           <button class="btn btn-outline-info" routerLink="/offerCandidacy/show/{{interview.offerCandidacy?.id}}">back</button>
-          </div>
+        </div>
+        <div *ngIf="user.id==interview?.admissionCandidacy?.user?.id ">
+          <button class="btn btn-outline-info" routerLink="/showAdmissionCandidacy/{{interview.admissionCandidacy?.id}}">back</button>
+        </div>
         <div *ngIf="role=='ADMIN'">
-          <button class="btn btn-outline-info" routerLink="/admin/offerCandidacy/show/{{interview.offerCandidacy?.id}}">show candidacy details</button>
-          <div><br></div>
-          <button class="btn btn-outline-info" routerLink="/admin/user/show/{{interview.user.id}}">show jury profil</button>
-
+          <div *ngIf="interview.offerCandidacy?.id">
+            <button class="btn btn-outline-info" routerLink="/admin/offerCandidacy/show/{{interview.offerCandidacy?.id}}">show candidacy details</button>
           </div>
+          <div *ngIf="interview.admissionCandidacy?.id">
+            <button class="btn btn-outline-info" routerLink="/admin/showAdmissionCandidacy/{{interview.admissionCandidacy?.id}}">show candidacy details</button>
+          </div>          <div><br></div>
+          <div *ngIf="interview.offerCandidacy">
+            <button class="btn btn-outline-info" routerLink="/admin/user/show/{{interview.user.id}}">show jury profil</button>
+          </div>
+          <div *ngIf="interview.admissionCandidacy">
+            <button class="btn btn-outline-info" routerLink="/admin/user/show/{{interview.user.id}}">show evaluator profil</button>
+          </div>
+        </div>
         </li>
     </ul>
       <div *ngIf="interview" style="margin-left: 10px;">

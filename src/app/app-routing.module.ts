@@ -51,6 +51,9 @@ import { AddRoleComponent } from './components/role/add-role/add-role.component'
 import { AddAdmissionCandidacyComponent } from './components/admissioncandidacy/add-admission-candidacy/add-admission-candidacy.component';
 import { ShowAdmissionCandidacyComponent } from './components/admissioncandidacy/show-admission-candidacy/show-admission-candidacy.component';
 import { AdmindashComponent } from './components/admissioncandidacy/admindash/admindash.component';
+import { ListInterviewsComponent } from './components/interview/list-interviews/list-interviews.component';
+import { TakeTestComponent } from './components/test/take-test/take-test.component';
+import { ListAdmissionCandidaciesComponent } from './components/admissioncandidacy/list-admission-candidacies/list-admission-candidacies.component';
 
 const routes: Routes = [
   {
@@ -124,7 +127,7 @@ const routes: Routes = [
         component:ListtestComponent
       },
       {
-        path:'showQuestion',
+        path:'showQuestion/:id',
         component:ShowQuestionComponent
       },
       {
@@ -221,6 +224,18 @@ const routes: Routes = [
       {
         path:'faq/updatefaq/:id',
         component:CreateFAQComponent
+      },
+      {
+        path:'interview/list/:id',
+        component:ListInterviewsComponent
+      },
+      {
+        path:'showAdmissionCandidacy/:id',
+        component:ShowAdmissionCandidacyComponent
+      },
+      {
+        path:'admissionCandidacy/list',
+        component:ListAdmissionCandidaciesComponent
       }
     ]
   },
@@ -296,10 +311,6 @@ const routes: Routes = [
        component:ListOffersComponent
       },
       
-      {
-      path:'show/:id',
-      component:ShowOfferComponent
-      },
       
       {
         path:'faq',
@@ -324,6 +335,14 @@ const routes: Routes = [
       {
         path:'admissionCandidacy/add',
         component:AddAdmissionCandidacyComponent
+      },
+      {
+        path:'interview/list/:id',
+        component:ListInterviewsComponent
+      },
+      {
+        path:'takeTest/:id',
+        component:TakeTestComponent
       }
     ]
   }

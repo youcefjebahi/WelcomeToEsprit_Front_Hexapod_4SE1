@@ -17,7 +17,10 @@ export class AddAchievementComponent {
   role=this.authService.getRole();
 evenId!:number;
   ngOnInit() {  
-  
+    this.route.paramMap.subscribe(params => {
+      const id = Number(params.get('id'));
+      this.evenId=id;
+    });
   }
   achievement!:Achievement;
   name: string = '';
@@ -32,8 +35,9 @@ addAchievement(form: NgForm): void {
   
 
     this.achievementService.addAchievement(this.evenId,this.name,this.video).subscribe(data=> {
-      const  id=data.id;
-      console.log(data)
+      
+      this.router.navigate([`/admin/showEvent/${this.evenId}`]);
+
 
   })
   }

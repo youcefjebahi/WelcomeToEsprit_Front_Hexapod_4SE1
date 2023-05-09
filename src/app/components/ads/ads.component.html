@@ -1,18 +1,14 @@
        <!-- ======= Ads Section ======= -->
-       <div id="ad" class="ads-area area-padding">
+       <div *ngIf="Ads" style="display: flex; flex-direction: column;">
     
-          <div class="row text-center">  
-            <div class="col-5">       
-              <img class="img" width="100%" [src]="Ads[item].content" alt="">
-            </div> 
-            <div class="col-2">
+              <img *ngIf="Ads[item].content" class="img"  [src]="Ads[item].content" alt="">
               
-              
-            </div>
-            <div class="col-5">       
-              <img class="img" width="100%" *ngIf="item == Ads.length-1"  [src]="Ads[0].content" alt="">
-              <img class="img" width="100%" *ngIf="item < Ads.length-1"  [src]="Ads[item+1].content" alt="">
-            </div> 
-          </div>
+
+              <img class="img"  *ngIf="Ads[item].content && item == Ads.length-1"  [src]="Ads[0].content" alt="">
+              <img class="img"  *ngIf="Ads[item].content && item < Ads.length-1"  [src]="Ads[item+1].content" alt="">
       
+              <img class="img"  *ngIf="Ads[item].content&& Ads.length>1 && item == Ads.length-1"  [src]="Ads[1].content" alt="">
+              <img class="img"  *ngIf="Ads[item].content&& Ads.length==1 && item == Ads.length-1"  [src]="Ads[0].content" alt="">
+              <img class="img"  *ngIf="Ads[item].content && item == Ads.length-2"  [src]="Ads[0].content" alt="">
+              <img class="img"  *ngIf="Ads[item].content && item < Ads.length-2"  [src]="Ads[item+2].content" alt="">
       </div><!-- End ads Section -->

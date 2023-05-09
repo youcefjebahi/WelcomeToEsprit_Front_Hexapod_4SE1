@@ -13,11 +13,12 @@ export class AchievementService {
 
   addAchievement(evenId:number,name:string,video:File): Observable<any> {
     const formData: FormData = new FormData();
+    formData.append('id', evenId.toString());
     formData.append('name', name);
     formData.append('video', video);
    
 
-    const headers = new HttpHeaders().set('even_id', evenId.toString());
+    const headers = new HttpHeaders();
     headers.append('Content-Type', 'multipart/form-data');
     headers.append('Accept', 'application/json');
     
@@ -36,8 +37,10 @@ export class AchievementService {
     return this.http.put(url, { name });
 }
 
+findAchievemntsByEventId(id:number): Observable<any>{
+  return this.http.get<Achievement[]>(this.url+`/findAchievemntsByEventId/${id}`);
+}
   
   
-  
-  
+
 }

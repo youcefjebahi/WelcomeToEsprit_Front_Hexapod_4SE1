@@ -23,17 +23,17 @@ export class ShowInterviewComponent {
       const id = Number(params.get('id'));
       this.getInterviewById(id);
     });
-  }
-  getInterviewById(id: number) {
-    this.interviewService.getInterviewById(id).subscribe(
-      data => {
-        this.interview = data;
-    });
     if (this.mail)
     this.userService.getUserbyMail(this.mail)
     .subscribe((data) => {
       if(data)
       this.user = data;
+    });
+  }
+  getInterviewById(id: number) {
+    this.interviewService.getInterviewById(id).subscribe(
+      data => {
+        this.interview = data;
     });
   }
 }

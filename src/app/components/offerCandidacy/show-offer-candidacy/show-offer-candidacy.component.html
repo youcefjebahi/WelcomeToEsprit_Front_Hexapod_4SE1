@@ -28,11 +28,8 @@
                 </form>
               </div>
               <div style="display: flex; align-items: center;">
-                <div *ngIf="offerCandidacy.status" [style.background-color]="getStatusColor(offerCandidacy.status)"
-     style="margin-left: 20px; padding-bottom: 0px; border-radius: 5px; color: white !important;">
-  <p>{{ offerCandidacy.status }}</p>
-</div>
-
+                <div *ngIf="offerCandidacy.status" [style.background-color]="getStatusColor(offerCandidacy.status)" style="margin-left: 20px; padding-bottom: 0px; border-radius: 5px; color: white !important;"> <p>{{ offerCandidacy.status }}</p>
+              </div>
               </div>
             </div>
               <div style="display: flex">
@@ -64,19 +61,18 @@
         
 
           <div *ngIf=" user && user?.id==offerCandidacy?.user?.id || (user?.id==interview?.user?.id && role!='ADMIN')">
-          <button class="btn btn-outline-info" routerLink="/interview/show/{{interview.id}}">show interview details</button>
+            <button class="btn btn-outline-info" routerLink="/interview/show/{{interview.id}}">show interview details</button>
           </div>
           <div *ngIf="user && role=='ADMIN'">
             <button class="btn btn-outline-info" routerLink="/admin/interview/show/{{interview.id}}">show interview details</button>
-            </div>
-            
-            <br>
-            <div *ngIf="user && user?.id==interview?.user?.id && role!='ADMIN'">
-              <button class="btn btn-outline-info" routerLink="/user/show/{{offerCandidacy.user.id}}">show candidate profil</button>
-              </div>
-              <div *ngIf="role=='ADMIN'">
-                <button class="btn btn-outline-info" routerLink="/admin/user/show/{{offerCandidacy.user.id}}">show candidate profil</button>
-                </div>
+          </div>
+          <br>
+          <div *ngIf="user && user?.id==interview?.user?.id && role!='ADMIN'">
+            <button class="btn btn-outline-info" routerLink="/user/show/{{offerCandidacy.user.id}}">show candidate profil</button>
+          </div>
+          <div *ngIf="role=='ADMIN'">
+            <button class="btn btn-outline-info" routerLink="/admin/user/show/{{offerCandidacy.user.id}}">show candidate profil</button>
+          </div>
         </div>
       </div>
     </main>

@@ -47,12 +47,14 @@ export class InvitationSpeakerComponent {
     this.invitationsService.inviterSpeakers(this.idEvent, id)
       .subscribe((invitation: Invitation) => {
         console.log(invitation);
-        alert('added students!');
+        alert('speaker invited!');
       });
   }
   inviterstudents(niveau:string) {
     this.invitationsService.inviterStudents(this.idEvent, niveau)
       .subscribe((invitations: Invitation[]) => {
+        alert('students invited!');
+
         console.log(invitations);
       });
   }

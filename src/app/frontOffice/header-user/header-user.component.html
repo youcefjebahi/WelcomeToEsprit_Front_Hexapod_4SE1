@@ -5,14 +5,16 @@
       <div class="logo">
         <!-- <h1><a href="#"><span>e</span>Business</a></h1>-->
         <!-- Uncomment below if you prefer to use an image logo -->
-        <a href="#"><img src="/assets/front/img/esprit.png" alt="" class="img-fluid"></a>
+        <a href="/post"><img src="/assets/front/img/esprit.png" alt="" class="img-fluid"></a>
       </div>
 
       <nav id="navbar" class="navbar">
         <ul>
           <li><a *ngIf="user" [routerLink]="['/post']"class="nav-link scrollto" >Home</a></li>
-          <li><a *ngIf="user" class="nav-link scrollto" href="/admissionCandidacy/add">Admission</a></li>
+          <li><a *ngIf="user && !admissionCandidacy" class="nav-link scrollto" href="/admissionCandidacy/add">Admission</a></li>
+          <li><a *ngIf="user && admissionCandidacy" class="nav-link scrollto" href="/showAdmissionCandidacy/{{admissionCandidacy.id}}">Admission</a></li>
           <li><a *ngIf="user" class="nav-link scrollto" href="/offer/list">Recruitment</a></li>
+          <li><a *ngIf="user && (user.jury || user.evaluator)" class="nav-link scrollto" href="/interview/list/{{user.id}}">Interviews</a></li>
           <li><a *ngIf="user" class="nav-link scrollto" href="/faq">FAQ</a></li>
 
 

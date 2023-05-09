@@ -1,28 +1,12 @@
-<main id="main">
 
-    <div id="about" class="about-area area-padding">
-        <div class="container">
-          <div class="col-md-12 col-sm-12 col-xs-12">
-            <br>
-            <h2 class="center">Show Achievement of {{achievement.name}}</h2>
             <ul>
-                <li>id: {{achievement.id}} </li>
-                <li>Name: {{achievement.name}} </li>
-                <li>Video:
-                <div *ngIf="achievement.video" class="media-container" (click)="toggleFullScreen($event)">
-                  <div *ngIf="getFileFormat(achievement.video) === 'png' || getFileFormat(achievement.video) === 'jpeg'">
-                    <img [src]="'data:image/jpeg;base64,' + achievement.video" alt="CV" class="media">
-                  </div>
-                  <div *ngIf="getFileFormat(achievement.video) === 'pdf'">
-                    <ngx-extended-pdf-viewer [src]="'data:application/pdf;base64,' + achievement.video" [zoom]="100"  height="100vh"></ngx-extended-pdf-viewer>
+                <div style="display: flex; flex-direction: column;" *ngIf="achievement.video">{{achievement.name}}
+                  <div class="media-container" (click)="toggleFullScreen($event)">
+                    <video controls class="media" style="width: 400px;">
+                      <source [src]="'data:video/mp4;base64,' + achievement.video" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
                   </div>
                 </div>
-                </li>
             </ul>
-          </div>
-
-          <a [routerLink]="['/admin/getAchievements']" class="btn btn-primary">Back to List</a>
-        </div>
-      </div>
-    </main>
-      
+        

@@ -81,6 +81,20 @@ export class AdmissioncandidacyService {
 
   }
 
+  getAdmissionCandidacyByIdCandidate(id:number){
+
+    return this.http.get<AdmissionCandidacy>(this.url+`/getAdmissionCandidacyByIdCandidate/${id}`);
+  
+  }  
 
 
+  updateAdmissionCandidacyStatus(id: number, status: string) {
+    const url = this.url + `/updateAdmissionCandidacyStatus?id=${id}&status=${status}`;
+    return this.http.put(url, null);
+  }
+  
+  updateAdmissionCandidacyScore(id: number, score: number) {
+    const url = this.url + `/updateAdmissionCandidacyScore?id=${id}&score=${score}`;
+    return this.http.put(url, null);
+  }
 }

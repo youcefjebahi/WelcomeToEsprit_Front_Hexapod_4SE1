@@ -31,6 +31,25 @@ export class TestService {
     return this.http.delete(this.url+`/removeTestById/${id}`);
   }
   
+  getResultTest(
+    testId: number,
+    candidacyId: number,
+    rep: string,
+    rep1: string,
+    rep2: string,
+    rep3: string
+  ): Observable<string> {
+    const params = {
+      testId: testId.toString(),
+      candidacyId: candidacyId.toString(),
+      rep,
+      rep1,
+      rep2,
+      rep3
+    };
+    return this.http.get<string>(this.url+'/getResultTest', { params });
+  }
+  
 
   }
 

@@ -86,9 +86,12 @@ import { ListOfferCandidaciesComponent } from './components/offerCandidacy/list-
 import { DashadminComponent } from './components/user/userAdmin/dashadmin/dashadmin.component';
 import { AddRoleComponent } from './components/role/add-role/add-role.component';
 import { AddAdmissionCandidacyComponent } from './components/admissioncandidacy/add-admission-candidacy/add-admission-candidacy.component';
-import { GetresultComponent } from './components/test/getresult/getresult.component';
 import { ShowAdmissionCandidacyComponent } from './components/admissioncandidacy/show-admission-candidacy/show-admission-candidacy.component';
 import { AdmindashComponent } from './components/admissioncandidacy/admindash/admindash.component';
+import { SidebarComponent } from './frontOffice/sidebar/sidebar.component';
+import { ListInterviewsComponent } from './components/interview/list-interviews/list-interviews.component';
+import { TakeTestComponent } from './components/test/take-test/take-test.component';
+import { ListAdmissionCandidaciesComponent } from './components/admissioncandidacy/list-admission-candidacies/list-admission-candidacies.component';
 
 
 
@@ -156,14 +159,17 @@ import { AdmindashComponent } from './components/admissioncandidacy/admindash/ad
     ListRoomsComponent,
     UpdateRoomComponent,
     AddAdmissionCandidacyComponent,
-    GetresultComponent,
     ShowAdmissionCandidacyComponent,
     AdmindashComponent,
     ListOfferCandidaciesComponent,
     AddRoleComponent,
     AddAdmissionCandidacyComponent,
     DashadminComponent,
-    AddRoleComponent
+    AddRoleComponent,
+    SidebarComponent,
+    ListInterviewsComponent,
+    TakeTestComponent,
+    ListAdmissionCandidaciesComponent
   ],
   imports: [
     BrowserModule,

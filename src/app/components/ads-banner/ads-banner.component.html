@@ -2,12 +2,9 @@
     
 
 
-        <div id="ad" class="ads-area area-padding" >
-         
-            <div class="row text-center">  
-              <div class="col">       
-                <img class="img" width="100%"  [src]="Ads[item].content" alt=""> 
-              </div> 
-            </div>
+        <div style="height: 200px;"  >
+       
+                <img class="img" *ngIf="show"  [src]="Ads[item].content" alt=""> 
+
          
         </div>

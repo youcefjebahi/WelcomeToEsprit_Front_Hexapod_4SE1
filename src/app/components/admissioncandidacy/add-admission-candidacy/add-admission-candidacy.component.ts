@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AdmissioncandidacyService } from 'src/app/services/admissioncandidacy.service';
 import { InterviewService } from 'src/app/services/interview.service';
 
@@ -32,7 +33,7 @@ export class AddAdmissionCandidacyComponent {
   docDiplomaSrc!:string;
 
 
-  constructor(private admisstionCandidacyService:AdmissioncandidacyService,private interviewService:InterviewService){}
+  constructor(private admisstionCandidacyService:AdmissioncandidacyService,private interviewService:InterviewService,private router: Router){}
 
     bac=false;
     docBacDiploma!: File;
@@ -133,7 +134,8 @@ export class AddAdmissionCandidacyComponent {
          .subscribe(
           
         data => {
-  
+          const idAdmissionCandidacyCreated=data.id;
+          this.router.navigate([`/showAdmissionCandidacy/${idAdmissionCandidacyCreated}`]);
           this.loading = false;
       }
          );

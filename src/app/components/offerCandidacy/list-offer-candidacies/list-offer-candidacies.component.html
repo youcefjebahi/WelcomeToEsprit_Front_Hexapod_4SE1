@@ -12,7 +12,7 @@
               <tr>
                 <tr  *ngFor="let offerCandidacy of offerCandidaciesList">
                     <td>{{offerCandidacy.user.firstName}} {{offerCandidacy.user.lastName}}</td>
-                    <td *ngIf="offerCandidacy?.status">{{offerCandidacy.score}}</td>
+                    <td>{{offerCandidacy.score}}</td>
                     <td>{{offerCandidacy.status}}</td>
                     <td><button type="button" class="btn btn-success btn-sm" (click)="onAccept(offerCandidacy.id)">accept</button></td>
                     <td><button type="button" class="btn btn-danger btn-sm" (click)="onReject(offerCandidacy.id)">reject</button>
@@ -20,5 +20,9 @@
                 </tr>
             </tbody>
           </table>
+          <div>
+            <canvas #myCanvas></canvas>
+          </div>
+          
     </div>
 </main>

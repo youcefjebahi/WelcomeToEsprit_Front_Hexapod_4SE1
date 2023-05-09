@@ -20,17 +20,21 @@ export class AdsBannerComponent {
   lengthInt = 0
 
   obs$ = interval(10000)
+  obs2$ = interval(1000)
+
 
   ngOnInit( ) { 
     this.getAds();
-  } 
+    this.obs2$.subscribe((b)=>{
+      this.show = !this.show
+    })  } 
+  show : boolean = false
 
  
 
   getAds() {
     this.adService.getAds().subscribe(res => {
       this.Ads = res;
-      console.log('aaaaaaaaa' , this.Ads)
       this.Ads = this.Ads.filter((i:any)=>{
         return i.typeads == "V"
       })
@@ -39,12 +43,10 @@ export class AdsBannerComponent {
       })
       if(!localStorage.getItem('tag'))
       this.adService.addVue(this.Ads[this.item].id).subscribe(res=>{
-        console.log(res)
       })
       
 
       this.obs$.subscribe((d)=>{
-        console.log('ameeeeeeni' , this.item)
         
 
         if(this.item == this.Ads.length-1 ){
@@ -55,7 +57,6 @@ export class AdsBannerComponent {
             if(!localStorage.getItem('tag')){
               this.adService.addVue(this.Ads[this.item].id).subscribe(res=>{
                 this.lengthInt = this.lengthInt +1
-                console.log(res)
               })
             }
           }else{
@@ -66,8 +67,6 @@ export class AdsBannerComponent {
       })
 
       
-      console.log('adsss' , this.Ads)
-      console.log(this.Ads[0]);
       
     },
       error => {

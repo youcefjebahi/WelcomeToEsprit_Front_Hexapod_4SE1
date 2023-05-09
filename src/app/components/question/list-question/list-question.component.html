@@ -23,7 +23,7 @@
 
 
                                 <div class="button-group">
-                                    <a *ngIf="role=='ADMIN'" [routerLink]="['/admin/showQuestion', question]" class="btn btn-outline-warning">Show</a>
+                                    <a *ngIf="role=='ADMIN'" [routerLink]="['/admin/showQuestion', question.id]" class="btn btn-outline-warning">Show</a>
                                     
                                    <button *ngIf="role=='ADMIN'"  class="btn btn-outline-warning" (click)="deleteQuestions(question.id)">Delete</button> 
                                   </div>

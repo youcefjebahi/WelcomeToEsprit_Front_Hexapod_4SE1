@@ -257,7 +257,7 @@ div#preloader {
   transition: all 0.5s;
   z-index: 997;
   transition: all 0.5s;
-  background: rgba(181, 2, 2, 0.8);
+  background: rgba(181, 2, 2);
 }
 
 #header.header-scrolled {
@@ -2127,7 +2127,7 @@ span.email-notes {
 # Footer
 --------------------------------------------------------------*/
 .footer-area {
-  padding: 40px 0;
+  padding: 140px 0;
   background: #f9f9f9;
 }
 
@@ -2233,7 +2233,6 @@ span.email-notes {
 
 .footer-area-bottom {
   background: #f1f1f1 none repeat scroll 0 0;
-  padding: 15px 0;
 }
 
 .copyright-text a:hover {
