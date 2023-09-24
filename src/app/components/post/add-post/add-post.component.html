@@ -15,8 +15,8 @@
     <div class="form-group flex-grow-1 mr-1">
         <div class="tweetBox">
             <form (ngSubmit)="onSubmit()" >
-              <div class="tweetbox__input">
-                <img  src="https://i.pinimg.com/originals/a6/58/32/a65832155622ac173337874f02b218fb.png" alt="">
+              <div *ngIf="user" class="tweetbox__input">
+                <img  [src]="'data:image/jpeg;base64,' + user.image"  alt="">
                 <input type="text" id="text" [(ngModel)]="newPost.text" name="text" required placeholder="What's on your mind">
                 
 
@@ -27,7 +27,7 @@
           </div>
         <div class="micro">
             <button class="voice-button" class="voice-button"(click)="startRecognition()">  <i class="fas fa-microphone"></i></button>    
-               <marquee behavior="" direction="" style="font-family: 'Pacifico', cursive; font-size: 1rem; color: #4a4c4d;">  Partagez vos pensées en parlant : cliquez sur le bouton pour démarrer la reconnaissance vocale !</marquee>
+               <marquee behavior="" direction="" style="font-family: 'Pacifico', cursive; font-size: 1rem; color: #4a4c4d;"> Share your thoughts by speaking: click the button to start voice recognition!</marquee>
         </div>
     </div> 
 

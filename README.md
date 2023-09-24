@@ -1,26 +1,32 @@
 # WelcomeToEspritFrontHexapod4SE1
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.5.
-## Node module
-commande line: npm install
-## Angular
-version 15.2.5
-commande line: npm install -g @angular/cli@15.2.5
+Welcome to the frontend README for the "Welcome To Esprit" project. This document provides an overview of the frontend portion of the project, its technologies, and how to get started.
 
-## other package to install:
-1-
-npm install ngx-cookie-service --save
--------------------------------------------------
-# NB:
-Please respect the tree structure of the project, component or model or service, each one under the associated directory (components and models and services).
-for example:
-to create a component 'add-offer.component.ts' :==>    ng g c components/offer/addOffer
-to create a service 'offer.service.ts':==>     ng g s services/offer
-to create an model  'offer.ts':==>    ng g cl models/offer.
-this will create the directory if doesn't exist already.
+# Project Overview
+The frontend of "Welcome To Esprit" is the user interface developed using Angular, providing a modern and intuitive experience for applicants, administrators, and other stakeholders.
 
+# Technologies Used
+This frontend utilizes a set of technologies to deliver a seamless user experience:
 
-## other packages:
-npm install ngx-cookie-service
-npm install @kurkle/color
-npm install @bootstrap
+Angular: We've chosen Angular for its ability to create dynamic and responsive web applications.
+
+Node.js: Node.js is used for package management and running development tasks.
+
+Other Dependencies: For a complete list of dependencies and their versions, please refer to the package.json file in the frontend directory.
+
+# Requirements
+Before you begin, make sure you have the following installed:
+
+Node.js
+Angular CLI (15.2.5)
+
+# Install
+npm install
+
+# Authors
+Youcef Jebahi
+Balsem Elloumi
+Mohamed Aziz Elheni
+Ibrahim Ben Khalifa
+Nadhir Baatour
+Ameni Boughanmi

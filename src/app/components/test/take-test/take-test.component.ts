@@ -18,6 +18,8 @@ export class TakeTestComponent {
   done=false;
   confirmed=false;
   answer: string[]=['','','',''];
+  shuffledOptions: string[][] = [];
+
   constructor(private testService:TestService,private route: ActivatedRoute,private admissioncandidacyService:AdmissioncandidacyService){}
   ngOnInit() {  
     this.route.paramMap.subscribe(params => {
@@ -27,10 +29,12 @@ export class TakeTestComponent {
     });
   }
   getAdmissionCandidacyById(id: number) {
-    this.admissioncandidacyService. getAdmissionCandidacyById(id).subscribe(
-      data => {
-        this. admissionCandidacy   = data;
-    });
+    this.admissioncandidacyService
+      .getAdmissionCandidacyById(id)
+      .subscribe((data) => {
+        this.admissionCandidacy = data;
+        this.initializeShuffledOptions();
+      });
   }
   getResultTest(F:NgForm){
     if(this.confirmed==true){
@@ -42,4 +46,24 @@ export class TakeTestComponent {
   });
   }
 }
+initializeShuffledOptions() {
+  if (!this.shuffledOptions || this.shuffledOptions.length === 0) {
+    this.shuffledOptions = this.admissionCandidacy.tests[0]?.questions.map((question) => {
+      const options = [question?.true1, question?.false1, question?.false2, question?.false3];
+      return this.shuffleOptions(options);
+    });
+  }
+}
+
+
+shuffleOptions(options: any[]): any[] {
+  // Fisher-Yates shuffle algorithm
+  for (let i = options.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [options[i], options[j]] = [options[j], options[i]];
+  }
+  return options;
+}
+
+
 }

@@ -4,6 +4,8 @@ import { PostService } from 'src/app/services/postservice/post.service';
 import { ToastrService } from 'ngx-toastr';
 import { Message } from 'primeng/api';
 import { User } from 'src/app/models/user';
+import { AuthService } from 'src/app/services/auth.service';
+import { UserService } from 'src/app/services/user.service';
 declare var webkitSpeechRecognition: any;
 @Component({
   selector: 'app-add-post',
@@ -16,10 +18,17 @@ export class AddPostComponent implements OnInit{
   user!:User;
   messages!: Message[];
   recognition!: any;
+  mail=this.authService.getSubject();
 
-  constructor(private postService: PostService,private toastr: ToastrService) { }
+
+  constructor(private postService: PostService,private toastr: ToastrService,private authService: AuthService, private userService: UserService) { }
 
   ngOnInit() {
+    if (this.mail)
+    this.userService.getUserbyMail(this.mail)
+    .subscribe((user) => {
+      this.user = user;
+    });
   }
   
   onSubmit() {
